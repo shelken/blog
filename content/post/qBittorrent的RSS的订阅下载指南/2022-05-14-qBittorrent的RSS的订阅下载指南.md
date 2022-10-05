@@ -3,7 +3,7 @@ title: qBittorrent的RSS的订阅下载指南
 description: qBittorrent的RSS的订阅下载指南
 slug: qBittorrent的RSS的订阅下载指南
 date: 2022-05-14 00:00:00+0000
-image: https://shelken-bucket.oss-cn-hongkong.aliyuncs.com/uPic/image-20220514141431969.png
+image: cover.png
 categories:
     - 追番
 tags:
