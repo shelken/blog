@@ -3,7 +3,7 @@ title: 解决字幕组命名不'规范'问题
 description: 解决字幕组命名不'规范'问题
 slug: 解决字幕组命名不'规范'问题
 date: 2022-05-15 00:00:00+0000
-image: cover.jpeg
+image: cover.jpg
 categories:
     - 追番
 tags:
