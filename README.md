@@ -38,7 +38,7 @@ hugo mod tidy
 If you want to build this site using another static page hosting, you need to make sure they have Go installed in the machine. 
 
 <details>
-  <summary>Vercel</summary>
+  <summary>Vercel1</summary>
   
 You need to overwrite build command to install manually Go:
 
