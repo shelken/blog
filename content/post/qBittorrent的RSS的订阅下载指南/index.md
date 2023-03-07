@@ -20,21 +20,21 @@ tags:
 
 - 打开 qb 配置页面，我的是部署在群晖的 qb，因此使用 web 页面来管理；如果是程序也一样。将启用 rss 订阅打开，间隔与数目最大值根据自定，然后将下面的「自动下载」打开，打开后我们才能在 rss 订阅更新时自动下载你订阅的资源。
 
-  ![image-20220514141431969](https://shelken-bucket.oss-cn-hongkong.aliyuncs.com/uPic/image-20220514141431969.png)
+  ![image-20220514141431969](https://assets.shelken.top/gh/PicGo/2023-03/d5a0c33e.png)
 
 - 然后点右侧的 「RSS」
 
-  ![image-20220514142037691](https://shelken-bucket.oss-cn-hongkong.aliyuncs.com/uPic/image-20220514142037691.png)
+  ![image-20220514142037691](https://assets.shelken.top/gh/PicGo/2023-03/0ca90876.png)
 
 - 然后我们先离开一下 qb，去你需要订阅资源的 bt 下载站。这里以我自己的需求做演示，我们来到「nyaa」;
 
 - 首先，我确定了我需要的订阅的内容：是`喵萌奶茶屋字幕组`翻译的`夏日重现`，并只要 `1080p` 的资源内容。这里我搜索「喵萌奶茶屋 夏日重现 1080p」，可以看到结果非常符合我的预期。因为字幕组的命名基本是固定的，所以这个搜索结果基本是稳定的。
 
-  ![image-20220514142759551](https://shelken-bucket.oss-cn-hongkong.aliyuncs.com/uPic/image-20220514142759551.png)
+  ![image-20220514142759551](https://assets.shelken.top/gh/PicGo/2023-03/e3e1cde1.png)
 
 - 点击 RSS
 
-![image-20220514143533237](https://shelken-bucket.oss-cn-hongkong.aliyuncs.com/uPic/image-20220514143533237.png)
+![image-20220514143533237](https://assets.shelken.top/gh/PicGo/2023-03/d2fda6bc.png)
 
 - 可以看到地址 url 变了，因此我们知道，只要在原来的内容加上`page=rss`，那么就拿到我们的 `rss` 订阅地址
 
@@ -48,11 +48,11 @@ tags:
 
 * 回到 qb 界面，订阅 rss
 
-  ![image-20220514150256737](https://shelken-bucket.oss-cn-hongkong.aliyuncs.com/uPic/image-20220514150256737.png)
+  ![image-20220514150256737](https://assets.shelken.top/gh/PicGo/2023-03/8bc31601.png)
 
 * 然后打开`rss下载器`，新建一个下载规则；这里我讲解一下规则定义。
 
-  ![image-20220514150525225](https://shelken-bucket.oss-cn-hongkong.aliyuncs.com/uPic/image-20220514150525225.png)
+  ![image-20220514150525225](https://assets.shelken.top/gh/PicGo/2023-03/cb8e6712.png)
 
  `空格`代表`与`关系，即这些关键词都必须有才匹配上。`|`代表`或`关系，即只要有一个关键词命中就匹配，`?`代表一个字符，`*`代表 0 或多个字符。这里我们甚至可以使用正则表达式，能实现更加复杂的限制。
 
@@ -60,6 +60,6 @@ tags:
 
 - 然后将你`配置好的规则`和你`订阅的RSS链接`进行关联，保存
 
-  ![image-20220514152624596](https://shelken-bucket.oss-cn-hongkong.aliyuncs.com/uPic/image-20220514152624596.png)
+  ![image-20220514152624596](https://assets.shelken.top/gh/PicGo/2023-03/b3c9322f.png)
 
 - 至此，你的 qb 每隔 xx 分钟去刷新订阅，当有新资源发布在种子网站时，qb 会自动下载符合你定义的资源，并保存在你定义的目录下。

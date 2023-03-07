@@ -3,7 +3,7 @@ title: 优雅地在B站客户端观看新番
 description: 优雅地在B站客户端观看新番
 slug: 优雅地在B站客户端观看新番
 date: 2022-04-01 00:00:00+0000
-image: https://shelken-bucket.oss-cn-hongkong.aliyuncs.com/uPic/19CC3738-4345-4CAB-896F-A21B8B051B7C_1_201_a.jpeg
+image: https://assets.shelken.top/gh/PicGo/2023-03/1b244e59.jpg
 categories:
     - 追番
 tags:
@@ -29,10 +29,10 @@ tags:
 
 1. 进入 B 站客户端
 2. 进入『首页』，点击『追番』
-3. 找到番剧『进击的巨人最终季』![19CC3738-4345-4CAB-896F-A21B8B051B7C_1_201_a](https://shelken-bucket.oss-cn-hongkong.aliyuncs.com/uPic/19CC3738-4345-4CAB-896F-A21B8B051B7C_1_201_a.jpeg)
-4. 点击进入，脚本会自动将代理节点切换设置的代理分组![9C12ABCB-933D-4C5D-8660-390BAFF3631B_1_201_a](https://shelken-bucket.oss-cn-hongkong.aliyuncs.com/uPic/9C12ABCB-933D-4C5D-8660-390BAFF3631B_1_201_a.jpeg)
-5. 如果出现『找不到页面』，点击页面的『重新加载』或刷新页面，进入番剧观看页面，正常观看![E0691890-CF30-4798-8B4C-4E3FBD6AB387_1_201_a](https://shelken-bucket.oss-cn-hongkong.aliyuncs.com/uPic/E0691890-CF30-4798-8B4C-4E3FBD6AB387_1_201_a.jpeg)
-6. 退出观看页，脚本自动切换为直连![3D637A3B-F675-4DA0-B67E-E697B6FB1953_1_201_a](https://shelken-bucket.oss-cn-hongkong.aliyuncs.com/uPic/3D637A3B-F675-4DA0-B67E-E697B6FB1953_1_201_a.jpeg)
+3. 找到番剧『进击的巨人最终季』![19CC3738-4345-4CAB-896F-A21B8B051B7C_1_201_a](https://assets.shelken.top/gh/PicGo/2023-03/1b244e59.jpg)
+4. 点击进入，脚本会自动将代理节点切换设置的代理分组![9C12ABCB-933D-4C5D-8660-390BAFF3631B_1_201_a](https://assets.shelken.top/gh/PicGo/2023-03/28b14337.jpg)
+5. 如果出现『找不到页面』，点击页面的『重新加载』或刷新页面，进入番剧观看页面，正常观看![E0691890-CF30-4798-8B4C-4E3FBD6AB387_1_201_a](https://assets.shelken.top/gh/PicGo/2023-03/0b8f787c.jpg)
+6. 退出观看页，脚本自动切换为直连![3D637A3B-F675-4DA0-B67E-E697B6FB1953_1_201_a](https://assets.shelken.top/gh/PicGo/2023-03/5cb2f94a.jpg)
 
 ### 效果 2
 
@@ -40,7 +40,7 @@ tags:
 2. 点击『输入框』
 3. 输入『进击的巨人 港』
 4. 脚本自动切换代理分组
-5. 页面显示『进击的巨人』番剧结果![941D38C8-4229-4899-9A34-9A25D070B229_1_201_a](https://shelken-bucket.oss-cn-hongkong.aliyuncs.com/uPic/941D38C8-4229-4899-9A34-9A25D070B229_1_201_a.jpeg)
+5. 页面显示『进击的巨人』番剧结果![941D38C8-4229-4899-9A34-9A25D070B229_1_201_a](https://assets.shelken.top/gh/PicGo/2023-03/69408d0f.jpg)
 6. 点击『立即观看』，进入观看页
 
 ## 优点
