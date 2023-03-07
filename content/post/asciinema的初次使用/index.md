@@ -12,6 +12,6 @@ draft: false
 
 ## 测试
 
-测试2
+测试
 
 {{< asciicast src="demo.cast" poster="npt:0:01" idleTimeLimit=2 autoPlay=false loop=false >}}
