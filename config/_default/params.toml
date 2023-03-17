@@ -78,11 +78,11 @@ enabled = true
 provider = "disqus"
 
 [comments.disqusjs]
-shortname = ""
-apiUrl = ""
-apiKey = ""
-admin = ""
-adminLabel = ""
+shortname = "shelken-blog"
+apiUrl = "https://disqus.shelken.top/api/"
+apiKey = "292dl1q8t6ZjlTOTxyqLvU0BYGiRVfXkfxfMiyIcBBtDj8uy3GZTFmsdt7RbT7RG"
+admin = "disqus_4Sx6YFbunJ"
+adminLabel = "Mod"
 
 [comments.utterances]
 repo = ""
