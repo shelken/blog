@@ -58,9 +58,9 @@ site = "Shelkeni"
 card = "summary_large_image"
 
 [defaultImage.opengraph]
-enabled = false
+enabled = true
 local = false
-src = ""
+src = "https://assets.shelken.top/ali/PicGo/2023-03/c3471413.jpeg"
 
 [colorScheme]
 toggle = true
