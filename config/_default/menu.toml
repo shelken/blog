@@ -22,3 +22,11 @@ url = "https://twitter.com/Shelkeni"
 
 [social.params]
 icon = "brand-twitter"
+
+[[social]]
+identifier = "memos"
+name = "Memos"
+url = "https://memos.shelken.top/u/1"
+
+[social.params]
+icon = "memos-icon3"
