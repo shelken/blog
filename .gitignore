@@ -3,5 +3,5 @@ resources
 .DS_Store
 .hugo_build.lock
 .obsidian
-textgenerator/prompts/default
+obsidian/textgenerator/prompts/default
 
