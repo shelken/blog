@@ -1,7 +1,6 @@
 ---
 title: 解决字幕组命名不规范问题：使用Episode-ReName工具
 description: 本文介绍了如何使用 Episode-ReName 和 qBittorrent 实现下载剧集后自动重命名的功能，解决了字幕组种子命名格式不规范导致媒体服务器无法识别的问题。同时还提供了一些技巧和注意事项，如编译可执行程序、文件夹命名格式和做种问题等。
-slug: 解决字幕组命名不'规范'问题
 date: 2022-05-15 00:00:00+0000
 image: cover.jpg
 categories:

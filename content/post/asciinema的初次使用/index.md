@@ -2,7 +2,7 @@
 title: "Asciinema的初次使用"
 description: 
 date: 2023-03-05T03:04:46+08:00
-image: 
+image: https://assets.shelken.top/ali/PicGo/2023-03/c3471413.jpeg
 math: 
 license: 
 hidden: false
