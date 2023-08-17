@@ -1,7 +1,0 @@
-# Uncomment this file to enable multilanguage site support
-
-#[languages.zh-cn]
-#languageName = "中文"
-#languagedirection = "ltr"
-#title = "中文"
-#weight = 1
