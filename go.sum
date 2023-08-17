@@ -1,4 +1,4 @@
 cj.rs/gohugo-asciinema v0.0.0-20230110190338-83bbc86388be h1:2UiMMzLT8SEI3wCHwtgAiL5yAVE9UdrYmKklrZoUNjs=
 cj.rs/gohugo-asciinema v0.0.0-20230110190338-83bbc86388be/go.mod h1:LOi9TNDxS4FX8P9N0PzCrqwvnksxP++9dsYbyNL0Fus=
-github.com/CaiJimmy/hugo-theme-stack/v3 v3.16.0 h1:ZWF66g7aXA840CzsT4lv65wHSojqwY0Yj7KdvOkn5NA=
-github.com/CaiJimmy/hugo-theme-stack/v3 v3.16.0/go.mod h1:IPmCXiIxlFSLFYS0tOmYP6ySLviyeNVSabyvSuaxD+I=
+github.com/CaiJimmy/hugo-theme-stack/v3 v3.18.0 h1:0Jx4CuBGXRttHVHRSIZoVduwIisvCdsmKeoJpfPqbhk=
+github.com/CaiJimmy/hugo-theme-stack/v3 v3.18.0/go.mod h1:IPmCXiIxlFSLFYS0tOmYP6ySLviyeNVSabyvSuaxD+I=
