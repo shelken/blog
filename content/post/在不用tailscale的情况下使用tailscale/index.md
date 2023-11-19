@@ -1,5 +1,5 @@
 ---
-title: "在不用Tailscale的情况下使用Tailscale"
+title: 在不用Tailscale的情况下使用Tailscale
 description: 本文介绍了如何利用 Tailscale 的 funnel 功能，将本地部署的 headscale 开放到公网，从而解决 headscale 部署需要公网 IP 的限制。通过这种方式，可以使用 headscale 来让设备加入节点，而不需要使用 Tailscale。
 date: 2023-04-05T17:12:29+08:00
 image: https://assets.shelken.top/ali/PicGo/2023-03/c3471413.jpeg
@@ -9,10 +9,10 @@ hidden: false
 comments: true
 draft: false
 categories:
-    - 未分类
+  - 未分类
 tags:
-    - Tailscale
-    - Headscale
+  - Tailscale
+  - Headscale
 ---
 
 众所周知，headscale 可以解决 Tailscale 的一些限制，例如设备数。但是 headscale 部署需要一个公网 IP。最近，Tailscale 的 Funnel 进入 beta 测试了，刚好又看到一个大佬写了一篇利用 Tailscale 的 Funnel，将本地部署的 headscale 开放到公网的文章 [Using Tailscale without using Tailscale](https://tailscale.dev/blog/headscale-funnel)。这意味着我们可以使用 Tailscale 让人们通过互联网访问我们搭建的 headscale，并且只使用 headscale 来让设备加入节点。感觉有点像背叛 Tailscale 官方啊，可怜三秒。
