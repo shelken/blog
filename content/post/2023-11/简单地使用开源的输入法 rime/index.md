@@ -2,7 +2,7 @@
 title: 简单地使用开源的输入法 rime
 description: 
 date: 2023-11-19T21:21:57+08:00
-image: https://assets.shelken.top/ali/PicGo/2023-11/e703b21e.png
+image: https://gcore.jsdelivr.net/gh/shelken/picbed@main/uPic/2023-11/kFmrVz.png
 math: 
 license: 
 hidden: false

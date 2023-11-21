@@ -2,12 +2,12 @@
 title: qBittorrent的RSS订阅下载指南
 description: 本文介绍了如何使用 qBittorrent 自动下载订阅的资源，包括开启 rss 订阅、订阅 RSS 链接、定义下载规则等步骤。通过这些操作，用户可以方便地获取自己需要的资源，并节省大量时间和精力。
 date: 2022-05-14 00:00:00+0000
-image: "cover.png"
+image: https://gcore.jsdelivr.net/gh/shelken/picbed@main/uPic/2023-11/TrVKhx.png
 categories:
-    - 追番
+  - 追番
 tags:
-    - qBittorrent
-    - RSS
+  - qBittorrent
+  - RSS
 ---
 
 # 材料
