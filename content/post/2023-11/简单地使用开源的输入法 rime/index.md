@@ -53,14 +53,14 @@ tags:
 有时候，在输入中文时突然想要切换到英文。我的习惯是直接按右 `Shift` 来切换，但是初次使用时发现已经输入的字被清除了，这个时候需要在 `custom/default.custom.yaml` 去修改
 在你的 `switch_key.Shift_R` 下，从 `clear` 改为 `commit_code` 
 
-![image.png](https://assets.shelken.top/ali/PicGo/2023-11/f3f70c9d.png)
+![image.png](https://gcore.jsdelivr.net/gh/shelken/picbed@main/PicGo/2023-11/c76a8a82.png)
 
 
 ## 在不同的应用中自动切换为中文或者英文输入法
 
 在 `custom/squirrel.custom.yaml` 中添加你所安装的应用的配置，如下：
 
-![image.png](https://assets.shelken.top/ali/PicGo/2023-11/b2fd4f0f.png)
+![image.png](https://gcore.jsdelivr.net/gh/shelken/picbed@main/PicGo/2023-11/aec9b6da.png)
 
 
 

@@ -54,7 +54,7 @@ scp ./dist/linux/EpisodeReName shelken@192.168.0.80:/volume1/docker/qb-web/scrip
 
  打开工具->选项->下载。开启「Torrent 完成时运行外部程序」，填入你的程序地址
 
-![image-20220515171458914](https://assets.shelken.top/gh/PicGo/2023-03/63209c1c.png)
+![image-20220515171458914](https://gcore.jsdelivr.net/gh/shelken/picbed@main/PicGo/2023-11/a8fd15af.png)
 
  参数解释：
 
