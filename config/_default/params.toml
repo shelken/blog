@@ -76,7 +76,7 @@ enabled = true
 ## Comments
 [comments]
 enabled = true
-provider = "disqus"
+provider = "waline"
 
 [comments.disqusjs]
 shortname = "shelken-blog"
@@ -104,12 +104,12 @@ clientSecret = ""
 autoCreateIssue = false
 
 [comments.waline]
-serverURL = ""
-lang = ""
+serverURL = "https://waline-6gq7ny4et-shelkens-projects.vercel.app/"
+lang = "zh-CN"
 visitor = ""
 avatar = ""
-emoji = ["https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo"]
-requiredMeta = ["name", "email", "url"]
+emoji = ['//unpkg.com/@waline/emojis@1.1.0/weibo']
+requiredMeta = ["nick", "mail"]
 placeholder = ""
 
 [comments.waline.locale]
