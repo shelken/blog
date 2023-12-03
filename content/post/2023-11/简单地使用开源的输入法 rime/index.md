@@ -1,6 +1,6 @@
 ---
 title: 简单地使用开源的输入法 rime
-description: 
+description: ""
 date: 2023-11-19T21:21:57+08:00
 image: https://gcore.jsdelivr.net/gh/shelken/picbed@main/uPic/2023-11/kFmrVz.png
 math: 
@@ -17,6 +17,11 @@ tags:
   - 多平台
   - git
   - 同步
+slug: 
+noteId_x: 91
+create_time: 2023/11/19 21:21:57
+update_time: 2023/11/30 02:53:33
+publish_time: 2023/11/19 21:21:57
 ---
 
 
