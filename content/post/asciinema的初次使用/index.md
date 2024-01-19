@@ -15,4 +15,5 @@ draft: false
 测试
 
 
-{{< asciicast src="demo.cast" poster="npt:0:01" idleTimeLimit=2 autoPlay=false loop=false >}}
+{{< asciicast src="https://asciinema.org/a/564652.cast" poster="npt:0:01" idleTimeLimit=2 autoPlay=false loop=false >}}
+
