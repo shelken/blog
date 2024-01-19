@@ -2,7 +2,7 @@
 title: gh/glab 命令快速上手
 description: 简单说明 gh 和 glab 的常用命令
 date: 2024-01-19T20:05:42+08:00
-image: https://assets.shelken.top/ali/PicGo/2023-03/c3471413.jpeg
+image: https://gcore.jsdelivr.net/gh/shelken/picbed@main/uPic/2024-01/6hNGCf.png
 math: 
 license: 
 hidden: false
