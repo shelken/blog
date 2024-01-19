@@ -16,6 +16,7 @@ tags:
   - glab
   - 命令
   - CheatSheet
+slug: gh_glab
 ---
 # 目的
 
