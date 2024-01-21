@@ -17,10 +17,10 @@ tags:
   - 多平台
   - git
   - 同步
-slug: 
+slug: ""
 noteId_x: 91
-create_time: 2023/11/19 21:21:57
-update_time: 2023/11/30 02:53:33
+create_time: 11/19/2023, 9:21:57 PM
+update_time: 1/22/2024, 1:46:38 AM
 publish_time: 2023/11/19 21:21:57
 ---
 
@@ -67,6 +67,12 @@ publish_time: 2023/11/19 21:21:57
 
 ![image.png](https://gcore.jsdelivr.net/gh/shelken/picbed@main/PicGo/2023-11/aec9b6da.png)
 
+
+## 不同设备同步词库
+
+在你的 `/Users/[yourname]/Library/Rime` 目录下应该有 `installation.yaml` 文件，编辑它，将 `installation_id` 改为你喜欢的任意唯一的名，例如当前设备的名。在文件末尾加上 `sync_dir: "xxxx"` ，xxxx 为你需要存放的目录，例如 iCloud 云目录。保存后，点击同步用户数据，即可在存放的目录下看到 `installation_id` 为名的目录。
+
+![DiQ1mQ](https://gcore.jsdelivr.net/gh/shelken/picbed@main/uPic/2024-01/DiQ1mQ.png)
 
 
 # 参考
