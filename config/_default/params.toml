@@ -80,7 +80,7 @@ provider = "waline"
 
 [comments.disqusjs]
 shortname = "shelken-blog"
-apiUrl = "https://disqus.shelken.top/api/"
+apiUrl = "https://disqus.ooooo.space/api/"
 apiKey = "292dl1q8t6ZjlTOTxyqLvU0BYGiRVfXkfxfMiyIcBBtDj8uy3GZTFmsdt7RbT7RG"
 admin = "disqus_4Sx6YFbunJ"
 adminLabel = "Mod"
