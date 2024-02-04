@@ -1,13 +1,17 @@
 ---
 title: 优雅观看新番：B站客户端使用指南
 description: 本文介绍了如何使用QuanX自动切换B站番剧代理节点，实现自动观看港澳台番剧的功能。需要修改原有脚本和添加重写与分流引用，并关闭MPM。文章提供了详细步骤和已知问题，适合有一定代码能力的用户使用。
-slug: 优雅地在B站客户端观看新番
+slug: ""
 date: 2022-04-01 00:00:00+0000
 image: https://gcore.jsdelivr.net/gh/shelken/picbed@main/PicGo/2023-11/bcff2d81.jpg
 categories:
-    - 追番
+  - 追番
 tags:
-    - QuantumultX
+  - QuantumultX
+noteId_x: 2
+create_time: 3/8/2023, 1:23:56 AM
+update_time: 2/2/2024, 8:30:31 PM
+publish_time: 2022-04-01 00:00:00
 ---
 ## 声明
 

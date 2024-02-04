@@ -9,7 +9,7 @@ hidden: false
 comments: true
 draft: false
 categories:
-  - 未分类
+  - 网络
 tags:
   - Tailscale
   - Headscale
