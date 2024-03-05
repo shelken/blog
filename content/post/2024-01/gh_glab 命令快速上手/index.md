@@ -102,7 +102,8 @@ gh repo create test-repo-create2 -c --private --add-readme -d "测试远程仓�
 glab repo create test-create-repo --private -n test-create-repo -d "测试在个人空间下创建私密仓库"
 ### 指定 组/空间
 glab repo create test-create-repo -n test-create-repo -g xxx -d "测试在xxx组下创建仓库"
-
+### 进入git目录
+glab repo create -n test-create-repo -d "描述"
 
 
 # 改变仓库的可见
