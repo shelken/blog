@@ -105,6 +105,8 @@ glab repo create test-create-repo -n test-create-repo -g xxx -d "测试在xxx组
 ### 进入git目录
 glab repo create -n test-create-repo -d "描述"
 
+# 同步上游（如果fork其他仓库）
+gh repo sync shelken/test-create-repo
 
 # 改变仓库的可见
 ## 将当前目录对应仓库转为公开
