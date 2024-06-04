@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>输入法 on Shelken's Blog</title><link>https://blog.ooooo.space/tags/%E8%BE%93%E5%85%A5%E6%B3%95/</link><description>Recent content in 输入法 on Shelken's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 19 Nov 2023 21:21:57 +0800</lastBuildDate><atom:link href="https://blog.ooooo.space/tags/%E8%BE%93%E5%85%A5%E6%B3%95/feed.xml" rel="self" type="application/rss+xml"/><item><title>简单地使用开源的输入法 rime</title><link>https://blog.ooooo.space/p/%E7%AE%80%E5%8D%95%E5%9C%B0%E4%BD%BF%E7%94%A8%E5%BC%80%E6%BA%90%E7%9A%84%E8%BE%93%E5%85%A5%E6%B3%95-rime/</link><pubDate>Sun, 19 Nov 2023 21:21:57 +0800</pubDate><guid>https://blog.ooooo.space/p/%E7%AE%80%E5%8D%95%E5%9C%B0%E4%BD%BF%E7%94%A8%E5%BC%80%E6%BA%90%E7%9A%84%E8%BE%93%E5%85%A5%E6%B3%95-rime/</guid><description>&lt;img src="https://gcore.jsdelivr.net/gh/shelken/picbed@main/uPic/2023-11/kFmrVz.png" alt="Featured image of post 简单地使用开源的输入法 rime" />&lt;blockquote>
+&lt;p>这个项目帮助你：不需要配置复杂的配置；使用 git 来同步你的配置；及时地更新社区维护的词库&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;a class="link" href="https://github.com/Mark24Code/rime-auto-deploy" target="_blank" rel="noopener"
+>仓库地址Rime auto deploy&lt;/a>&lt;/p>
+&lt;p>可以在项目的 readme 了解基本的用法，例如安装，升级等操作。这里我主要就常用的几个操作进行介绍来快速入门。&lt;/p>
+&lt;h1 id="安装到你的新设备">安装到你的新设备
+&lt;/h1>&lt;p>在进行安装前，你应该将这个项目 fork 下来，方便我们后续的修改配置和同步配置&lt;/p>
+&lt;p>这里你只需要看项目的操作&lt;/p>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://github.com/Mark24Code/rime-auto-deploy#macoslinux-%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95" target="_blank" rel="noopener"
+>MacOS/Linux 使用方法&lt;/a> 这里告诉你基本的在新的设备上安装操作。记得 clone 自己的项目地址&lt;/li>
+&lt;/ul>
+&lt;h1 id="配置">配置
+&lt;/h1>&lt;h2 id="流程">流程
+&lt;/h2>&lt;blockquote>
+&lt;p>当你需要自定义一些配置时，你只需要关注一个目录，那就是 custom 目录&lt;/p>
+&lt;/blockquote>
+&lt;ol>
+&lt;li>修改在 custom 目录下的配置文件&lt;/li>
+&lt;li>重新运行 &lt;code>installer. rb&lt;/code> ，选 2 手动模式，再选 4，复制你的配置到 rime 的配置。&lt;/li>
+&lt;li>然后重新部署 rime。快捷键 &lt;code>alt + ctrl + ` &lt;/code>&lt;/li>
+&lt;li>git add commit push&lt;/li>
+&lt;/ol>
+&lt;h2 id="切换你的输入方案">切换你的输入方案
+&lt;/h2>&lt;p>如果你是个双拼用户，那么可以按 &lt;code>ctrl + `&lt;/code> 来让切换你的双拼方案&lt;/p>
+&lt;h2 id="切换输入法时保存已经输入的字符">切换输入法时保存已经输入的字符
+&lt;/h2>&lt;p>有时候，在输入中文时突然想要切换到英文。我的习惯是直接按右 &lt;code>Shift&lt;/code> 来切换，但是初次使用时发现已经输入的字被清除了，这个时候需要在 &lt;code>custom/default.custom.yaml&lt;/code> 去修改
+在你的 &lt;code>switch_key.Shift_R&lt;/code> 下，从 &lt;code>clear&lt;/code> 改为 &lt;code>commit_code&lt;/code>&lt;/p>
+&lt;p>&lt;img src="https://gcore.jsdelivr.net/gh/shelken/picbed@main/PicGo/2023-11/c76a8a82.png"
+loading="lazy"
+alt="image.png"
+>&lt;/p>
+&lt;h2 id="在不同的应用中自动切换为中文或者英文输入法">在不同的应用中自动切换为中文或者英文输入法
+&lt;/h2>&lt;p>在 &lt;code>custom/squirrel.custom.yaml&lt;/code> 中添加你所安装的应用的配置，如下：&lt;/p>
+&lt;p>&lt;img src="https://gcore.jsdelivr.net/gh/shelken/picbed@main/PicGo/2023-11/aec9b6da.png"
+loading="lazy"
+alt="image.png"
+>&lt;/p>
+&lt;h2 id="不同设备同步词库">不同设备同步词库
+&lt;/h2>&lt;p>在你的 &lt;code>/Users/[yourname]/Library/Rime&lt;/code> 目录下应该有 &lt;code>installation.yaml&lt;/code> 文件，编辑它，将 &lt;code>installation_id&lt;/code> 改为你喜欢的任意唯一的名，例如当前设备的名。在文件末尾加上 &lt;code>sync_dir: &amp;quot;xxxx&amp;quot;&lt;/code> ，xxxx 为你需要存放的目录，例如 iCloud 云目录。保存后，点击同步用户数据，即可在存放的目录下看到 &lt;code>installation_id&lt;/code> 为名的目录。&lt;/p>
+&lt;p>&lt;img src="https://gcore.jsdelivr.net/gh/shelken/picbed@main/uPic/2024-01/DiQ1mQ.png"
+loading="lazy"
+alt="DiQ1mQ"
+>&lt;/p>
+&lt;h1 id="参考">参考
+&lt;/h1>&lt;ul>
+&lt;li>&lt;a class="link" href="https://github.com/shelken/rime-auto-deploy" target="_blank" rel="noopener"
+>我的配置&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://dvel.me/posts/rime-ice/" target="_blank" rel="noopener"
+>雾凇拼音配置&lt;/a>
+️&lt;/li>
+&lt;/ul></description></item></channel></rss>
