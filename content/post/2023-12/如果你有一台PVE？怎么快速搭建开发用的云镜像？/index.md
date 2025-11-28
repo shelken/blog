@@ -2,7 +2,7 @@
 title: 如果你有一台PVE？怎么使用Terraform快速搭建开发用的云环境？
 description: 
 date: 2023-12-03T23:13:22+08:00
-image: https://gcore.jsdelivr.net/gh/shelken/picbed@main/cover/article-cover-1.jpeg
+image: https://public.image.ooooo.space/cover/article-cover-1.jpeg
 math: 
 license: 
 hidden: false
@@ -35,5 +35,3 @@ tags:
 ## terraform 的 provider（telmate/proxmox）版本选择
 
 建议使用 2.9.11 版本，最新版
-
-
