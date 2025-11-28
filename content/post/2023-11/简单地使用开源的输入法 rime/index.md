@@ -3,8 +3,8 @@ title: 简单地使用开源的输入法 rime
 description: ""
 date: 2023-11-19T21:21:57+08:00
 image: https://gcore.jsdelivr.net/gh/shelken/picbed@main/uPic/2023-11/kFmrVz.png
-math: 
-license: 
+math:
+license:
 hidden: false
 comments: true
 draft: false
