@@ -1,0 +1,831 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on</title><link>https://blog.ooooo.space/post/</link><description>Recent content in Posts on</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 19 Jan 2024 20:05:42 +0800</lastBuildDate><atom:link href="https://blog.ooooo.space/post/feed.xml" rel="self" type="application/rss+xml"/><item><title>gh/glab 命令快速上手</title><link>https://blog.ooooo.space/p/gh_glab/</link><pubDate>Fri, 19 Jan 2024 20:05:42 +0800</pubDate><guid>https://blog.ooooo.space/p/gh_glab/</guid><description>&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/uPic/2025-03/4uQN13-1qOq7y.png" alt="Featured image of post gh/glab 命令快速上手" /&gt;&lt;h1 id="目的"&gt;目的
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;快速创建 github 或者 gitlab 仓库，只使用命令行 gh 和 glab 的官方 cli 工具&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="安装"&gt;安装
+&lt;/h1&gt;&lt;h2 id="macos"&gt;macOS
+&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;brew install gh
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;brew install glab
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h1 id="命令"&gt;命令
+&lt;/h1&gt;&lt;h2 id="认证"&gt;认证
+&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;gh auth login
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/uPic/2024-01/iqb5Cp.png"
+loading="lazy"
+alt="iqb5Cp"
+&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这里去 &lt;a class="link" href="https://github.com/settings/tokens" target="_blank" rel="noopener"
+&gt;token页面&lt;/a&gt; 创建所需 scopes 的 token&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;glab auth login
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/uPic/2024-01/oJfKuG.png"
+loading="lazy"
+alt="oJfKuG"
+&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;gitlab 如果是自建的可以选择自定义 hostname&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="显示信息"&gt;显示信息
+&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;span class="lnt"&gt;15
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 列出repo信息&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;gh repo list
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;glab repo list
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;## gitlab 如果是自建的，执行前先把host设为你自建的, -g为全局&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;glab config &lt;span class="nb"&gt;set&lt;/span&gt; -g host xxxx.xxxx.com
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 搜索&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;## 搜索名为xxx的库&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;glab repo search -s xxx
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 查看项目的README信息&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;gh repo view
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;glab repo view
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="创建与变更仓库"&gt;创建与变更仓库
+&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;span class="lnt"&gt;15
+&lt;/span&gt;&lt;span class="lnt"&gt;16
+&lt;/span&gt;&lt;span class="lnt"&gt;17
+&lt;/span&gt;&lt;span class="lnt"&gt;18
+&lt;/span&gt;&lt;span class="lnt"&gt;19
+&lt;/span&gt;&lt;span class="lnt"&gt;20
+&lt;/span&gt;&lt;span class="lnt"&gt;21
+&lt;/span&gt;&lt;span class="lnt"&gt;22
+&lt;/span&gt;&lt;span class="lnt"&gt;23
+&lt;/span&gt;&lt;span class="lnt"&gt;24
+&lt;/span&gt;&lt;span class="lnt"&gt;25
+&lt;/span&gt;&lt;span class="lnt"&gt;26
+&lt;/span&gt;&lt;span class="lnt"&gt;27
+&lt;/span&gt;&lt;span class="lnt"&gt;28
+&lt;/span&gt;&lt;span class="lnt"&gt;29
+&lt;/span&gt;&lt;span class="lnt"&gt;30
+&lt;/span&gt;&lt;span class="lnt"&gt;31
+&lt;/span&gt;&lt;span class="lnt"&gt;32
+&lt;/span&gt;&lt;span class="lnt"&gt;33
+&lt;/span&gt;&lt;span class="lnt"&gt;34
+&lt;/span&gt;&lt;span class="lnt"&gt;35
+&lt;/span&gt;&lt;span class="lnt"&gt;36
+&lt;/span&gt;&lt;span class="lnt"&gt;37
+&lt;/span&gt;&lt;span class="lnt"&gt;38
+&lt;/span&gt;&lt;span class="lnt"&gt;39
+&lt;/span&gt;&lt;span class="lnt"&gt;40
+&lt;/span&gt;&lt;span class="lnt"&gt;41
+&lt;/span&gt;&lt;span class="lnt"&gt;42
+&lt;/span&gt;&lt;span class="lnt"&gt;43
+&lt;/span&gt;&lt;span class="lnt"&gt;44
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 克隆下某个仓库&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;gh repo clone xxx/xxxx
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;glab repo clone xxx/xxxx
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;glab repo clone https://xxxxx
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;glab repo clone &lt;span class="o"&gt;[&lt;/span&gt;id&lt;span class="o"&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 创建&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;## gh&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;### 此时目录下有个test-create-repo目录，test-create-repo 已经是个git仓库&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;### 将 test-create-repo 以私有的形式推送到github，此时gh会在远程创建一个test-create-repo的仓库&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;gh repo create --private --source&lt;span class="o"&gt;=&lt;/span&gt;test-create-repo --push
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;### 创建一个 test-repo-create2 私密仓库，添加readme和描述，如下图。并克隆到本地&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;gh repo create test-repo-create2 -c --private --add-readme -d &lt;span class="s2"&gt;&amp;#34;测试远程仓库创建并克隆到本地&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;## glab&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;### 在个人空间下创建私密仓库，create后面为路径以及在当前目录下的目录&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;glab repo create test-create-repo --private -n test-create-repo -d &lt;span class="s2"&gt;&amp;#34;测试在个人空间下创建私密仓库&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;### 指定 组/空间&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;glab repo create test-create-repo -n test-create-repo -g xxx -d &lt;span class="s2"&gt;&amp;#34;测试在xxx组下创建仓库&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;### 进入git目录&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;glab repo create -n test-create-repo -d &lt;span class="s2"&gt;&amp;#34;描述&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 同步上游（如果fork其他仓库）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;gh repo sync shelken/test-create-repo
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 改变仓库的可见&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;## 将当前目录对应仓库转为公开&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;gh repo edit --visibility public
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;## 将指定仓库的可见性转为私密&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;gh repo edit shelken/test-create-repo --visibility private
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 删除&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;gh repo delete --yes
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;gh repo delete xxx/xxxx --yes
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;## 指定 空间/repo 删除&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;glab repo delete xxx/xxxx -y
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;## 指定 本人/repo 删除&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;glab repo delete xxxx -y
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;## 本目录对应repo删除&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;glab repo delete -y
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/uPic/2024-01/VdIPIR.png"
+loading="lazy"
+alt="VdIPIR"
+&gt;&lt;/p&gt;</description></item><item><title>简单地使用开源的输入法 rime</title><link>https://blog.ooooo.space/p/%E7%AE%80%E5%8D%95%E5%9C%B0%E4%BD%BF%E7%94%A8%E5%BC%80%E6%BA%90%E7%9A%84%E8%BE%93%E5%85%A5%E6%B3%95-rime/</link><pubDate>Sun, 19 Nov 2023 21:21:57 +0800</pubDate><guid>https://blog.ooooo.space/p/%E7%AE%80%E5%8D%95%E5%9C%B0%E4%BD%BF%E7%94%A8%E5%BC%80%E6%BA%90%E7%9A%84%E8%BE%93%E5%85%A5%E6%B3%95-rime/</guid><description>&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/uPic/2023-11/kFmrVz.png" alt="Featured image of post 简单地使用开源的输入法 rime" /&gt;&lt;blockquote&gt;
+&lt;p&gt;这个项目帮助你：不需要配置复杂的配置；使用 git 来同步你的配置；及时地更新社区维护的词库&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a class="link" href="https://github.com/Mark24Code/rime-auto-deploy" target="_blank" rel="noopener"
+&gt;仓库地址Rime auto deploy&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;可以在项目的 readme 了解基本的用法，例如安装，升级等操作。这里我主要就常用的几个操作进行介绍来快速入门。&lt;/p&gt;
+&lt;h1 id="安装到你的新设备"&gt;安装到你的新设备
+&lt;/h1&gt;&lt;p&gt;在进行安装前，你应该将这个项目 fork 下来，方便我们后续的修改配置和同步配置&lt;/p&gt;
+&lt;p&gt;这里你只需要看项目的操作&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Mark24Code/rime-auto-deploy#macoslinux-%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95" target="_blank" rel="noopener"
+&gt;MacOS/Linux 使用方法&lt;/a&gt; 这里告诉你基本的在新的设备上安装操作。记得 clone 自己的项目地址&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="配置"&gt;配置
+&lt;/h1&gt;&lt;h2 id="流程"&gt;流程
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;当你需要自定义一些配置时，你只需要关注一个目录，那就是 custom 目录&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;修改在 custom 目录下的配置文件&lt;/li&gt;
+&lt;li&gt;重新运行 &lt;code&gt;installer. rb&lt;/code&gt; ，选 2 手动模式，再选 4，复制你的配置到 rime 的配置。&lt;/li&gt;
+&lt;li&gt;然后重新部署 rime。快捷键 &lt;code&gt;alt + ctrl + ` &lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;git add commit push&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="切换你的输入方案"&gt;切换你的输入方案
+&lt;/h2&gt;&lt;p&gt;如果你是个双拼用户，那么可以按 &lt;code&gt;ctrl + `&lt;/code&gt; 来让切换你的双拼方案&lt;/p&gt;
+&lt;h2 id="切换输入法时保存已经输入的字符"&gt;切换输入法时保存已经输入的字符
+&lt;/h2&gt;&lt;p&gt;有时候，在输入中文时突然想要切换到英文。我的习惯是直接按右 &lt;code&gt;Shift&lt;/code&gt; 来切换，但是初次使用时发现已经输入的字被清除了，这个时候需要在 &lt;code&gt;custom/default.custom.yaml&lt;/code&gt; 去修改
+在你的 &lt;code&gt;switch_key.Shift_R&lt;/code&gt; 下，从 &lt;code&gt;clear&lt;/code&gt; 改为 &lt;code&gt;commit_code&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/PicGo/2023-11/c76a8a82.png"
+loading="lazy"
+alt="image.png"
+&gt;&lt;/p&gt;
+&lt;h2 id="在不同的应用中自动切换为中文或者英文输入法"&gt;在不同的应用中自动切换为中文或者英文输入法
+&lt;/h2&gt;&lt;p&gt;在 &lt;code&gt;custom/squirrel.custom.yaml&lt;/code&gt; 中添加你所安装的应用的配置，如下：&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/PicGo/2023-11/aec9b6da.png"
+loading="lazy"
+alt="image.png"
+&gt;&lt;/p&gt;
+&lt;h2 id="不同设备同步词库"&gt;不同设备同步词库
+&lt;/h2&gt;&lt;p&gt;在你的 &lt;code&gt;/Users/[yourname]/Library/Rime&lt;/code&gt; 目录下应该有 &lt;code&gt;installation.yaml&lt;/code&gt; 文件，编辑它，将 &lt;code&gt;installation_id&lt;/code&gt; 改为你喜欢的任意唯一的名，例如当前设备的名。在文件末尾加上 &lt;code&gt;sync_dir: &amp;quot;xxxx&amp;quot;&lt;/code&gt; ，xxxx 为你需要存放的目录，例如 iCloud 云目录。保存后，点击同步用户数据，即可在存放的目录下看到 &lt;code&gt;installation_id&lt;/code&gt; 为名的目录。&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/uPic/2024-01/DiQ1mQ.png"
+loading="lazy"
+alt="DiQ1mQ"
+&gt;&lt;/p&gt;
+&lt;h1 id="参考"&gt;参考
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/shelken/rime-auto-deploy" target="_blank" rel="noopener"
+&gt;我的配置&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://dvel.me/posts/rime-ice/" target="_blank" rel="noopener"
+&gt;雾凇拼音配置&lt;/a&gt;
+️&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>在不用Tailscale的情况下使用Tailscale</title><link>https://blog.ooooo.space/p/%E5%9C%A8%E4%B8%8D%E7%94%A8tailscale%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E4%BD%BF%E7%94%A8tailscale/</link><pubDate>Wed, 05 Apr 2023 17:12:29 +0800</pubDate><guid>https://blog.ooooo.space/p/%E5%9C%A8%E4%B8%8D%E7%94%A8tailscale%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E4%BD%BF%E7%94%A8tailscale/</guid><description>&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/uPic/2023-11/gyzvPb.png" alt="Featured image of post 在不用Tailscale的情况下使用Tailscale" /&gt;&lt;p&gt;众所周知，headscale 可以解决 Tailscale 的一些限制，例如设备数。但是 headscale 部署需要一个公网 IP。最近，Tailscale 的 Funnel 进入 beta 测试了，刚好又看到一个大佬写了一篇利用 Tailscale 的 Funnel，将本地部署的 headscale 开放到公网的文章 &lt;a class="link" href="https://tailscale.dev/blog/headscale-funnel" target="_blank" rel="noopener"
+&gt;Using Tailscale without using Tailscale&lt;/a&gt;。这意味着我们可以使用 Tailscale 让人们通过互联网访问我们搭建的 headscale，并且只使用 headscale 来让设备加入节点。感觉有点像背叛 Tailscale 官方啊，可怜三秒。&lt;/p&gt;
+&lt;p&gt;接下来简单介绍一下操作步骤。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;先在任意一台自己的本地机器起一个最新稳定版 Tailscale。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;安装命令&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;curl -fsSL https://tailscale.com/install.sh &lt;span class="p"&gt;|&lt;/span&gt; sh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start="2"&gt;
+&lt;li&gt;再起一个 headscale，这里我用 docker-compose 部署，这里我大部分参考了官方的&lt;a class="link" href="https://github.com/juanfont/headscale/blob/main/docs/running-headscale-container.md" target="_blank" rel="noopener"
+&gt;教程&lt;/a&gt;
+另外，单独起了一个 &lt;a class="link" href="https://github.com/iFargle/headscale-webui/blob/main/SETUP.md#docker-compose" target="_blank" rel="noopener"
+&gt;webui&lt;/a&gt; 方便查看&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;span class="lnt"&gt;15
+&lt;/span&gt;&lt;span class="lnt"&gt;16
+&lt;/span&gt;&lt;span class="lnt"&gt;17
+&lt;/span&gt;&lt;span class="lnt"&gt;18
+&lt;/span&gt;&lt;span class="lnt"&gt;19
+&lt;/span&gt;&lt;span class="lnt"&gt;20
+&lt;/span&gt;&lt;span class="lnt"&gt;21
+&lt;/span&gt;&lt;span class="lnt"&gt;22
+&lt;/span&gt;&lt;span class="lnt"&gt;23
+&lt;/span&gt;&lt;span class="lnt"&gt;24
+&lt;/span&gt;&lt;span class="lnt"&gt;25
+&lt;/span&gt;&lt;span class="lnt"&gt;26
+&lt;/span&gt;&lt;span class="lnt"&gt;27
+&lt;/span&gt;&lt;span class="lnt"&gt;28
+&lt;/span&gt;&lt;span class="lnt"&gt;29
+&lt;/span&gt;&lt;span class="lnt"&gt;30
+&lt;/span&gt;&lt;span class="lnt"&gt;31
+&lt;/span&gt;&lt;span class="lnt"&gt;32
+&lt;/span&gt;&lt;span class="lnt"&gt;33
+&lt;/span&gt;&lt;span class="lnt"&gt;34
+&lt;/span&gt;&lt;span class="lnt"&gt;35
+&lt;/span&gt;&lt;span class="lnt"&gt;36
+&lt;/span&gt;&lt;span class="lnt"&gt;37
+&lt;/span&gt;&lt;span class="lnt"&gt;38
+&lt;/span&gt;&lt;span class="lnt"&gt;39
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-yml" data-lang="yml"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;version&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;3.8&amp;#39;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="nt"&gt;services&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;headscale&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;image&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;headscale/headscale:latest&amp;#39;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;container_name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;headscale&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;volumes&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="l"&gt;/data/docker/headscale/config:/etc/headscale/&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;environment&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="l"&gt;TZ=Asia/Shanghai&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;ports&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="s1"&gt;&amp;#39;9090:9090&amp;#39;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="s1"&gt;&amp;#39;8080:8080&amp;#39;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;restart&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;always&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;command&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;headscale serve&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;headscale-webui&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;image&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;ghcr.io/ifargle/headscale-webui:latest&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;container_name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;headscale-webui&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;restart&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;always&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;ports&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="s1"&gt;&amp;#39;8083:5000&amp;#39;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;environment&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="l"&gt;TZ=Asia/Shanghai&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="l"&gt;COLOR=red &lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c"&gt;# Use the base colors (ie, no darken-3, etc) -&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="l"&gt;HS_SERVER=http://headscale:8080 &lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c"&gt;# Reachable endpoint for your Headscale server&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="l"&gt;DOMAIN_NAME=http://headscale-webui:5000 &lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c"&gt;# The base domain name for this container.&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="l"&gt;SCRIPT_NAME=/admin &lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c"&gt;# This is your applications base path (wsgi requires the name &amp;#34;SCRIPT_NAME&amp;#34;). Remove if you are hosing at the root /&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="l"&gt;KEY=&amp;#34;&amp;#34; &lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c"&gt;# Generate with &amp;#34;openssl rand -base64 32&amp;#34; - used to encrypt your key on disk.&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="l"&gt;AUTH_TYPE= &lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c"&gt;# AUTH_TYPE is either Basic or OIDC. Empty for no authentication&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="l"&gt;LOG_LEVEL=info &lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c"&gt;# Log level. &amp;#34;DEBUG&amp;#34;, &amp;#34;ERROR&amp;#34;, &amp;#34;WARNING&amp;#34;, or &amp;#34;INFO&amp;#34;. Default &amp;#34;INFO&amp;#34;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c"&gt;# ENV for Basic Auth (Used only if AUTH_TYPE is &amp;#34;Basic&amp;#34;). Can be omitted if you aren&amp;#39;t using Basic Auth&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="l"&gt;BASIC_AUTH_USER=user &lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c"&gt;# Used for basic auth&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="l"&gt;BASIC_AUTH_PASS=pass &lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c"&gt;# Used for basic auth&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c"&gt;# ENV for OIDC (Used only if AUTH_TYPE is &amp;#34;OIDC&amp;#34;). Can be omitted if you aren&amp;#39;t using OIDC&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="l"&gt;OIDC_AUTH_URL=https://auth.$DOMAIN/.well-known/openid-configuration&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c"&gt;# URL for your OIDC issuer&amp;#39;s well-known endpoint&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="l"&gt;OIDC_CLIENT_ID=headscale-webui &lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c"&gt;# Your OIDC Issuer&amp;#39;s Client ID for Headscale-WebUI&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="l"&gt;OIDC_CLIENT_SECRET=YourSecretHere &lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c"&gt;# Your OIDC Issuer&amp;#39;s Secret Key for Headscale-WebUI&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;volumes&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="l"&gt;/data/docker/headscale/web-ui/data:/data &lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c"&gt;# Headscale-WebUI&amp;#39;s storage. Make sure ./volume is readable by UID 1000 (chown 1000:1000 ./volume)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="l"&gt;/data/docker/headscale/config/:/etc/headscale/:ro&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c"&gt;# Headscale&amp;#39;s config storage location. Used to read your Headscale config.&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start="3"&gt;
+&lt;li&gt;然后执行 Tailscale funnel 命令，将 headscale 开放到公网&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;tailscale serve tls-terminated-tcp:443 tcp://127.0.0.1:8080
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;tailscale funnel 443 on
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# 证书认证
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;tailscale cert [被分配的domain]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start="4"&gt;
+&lt;li&gt;其他客户端使用&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;ios 端现在已经也可以自定义 login-server，在设置里面填入自己的 headscale 地址
+其他端直接命令&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;tailscale login --login-server https://xxx.xxx.ts.net
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>Asciinema的初次使用</title><link>https://blog.ooooo.space/p/asciinema%E7%9A%84%E5%88%9D%E6%AC%A1%E4%BD%BF%E7%94%A8/</link><pubDate>Sun, 05 Mar 2023 03:04:46 +0800</pubDate><guid>https://blog.ooooo.space/p/asciinema%E7%9A%84%E5%88%9D%E6%AC%A1%E4%BD%BF%E7%94%A8/</guid><description>&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/uPic/2023-11/hqH7rN.png" alt="Featured image of post Asciinema的初次使用" /&gt;&lt;h2 id="测试"&gt;测试
+&lt;/h2&gt;&lt;p&gt;测试&lt;/p&gt;
+&lt;script src="https://blog.ooooo.space/js/asciinema-player.min.2c60ef900d7e2945f30ee44da8d28712.js"&gt;&lt;/script&gt;
+&lt;link rel="stylesheet" type="text/css" href="https://blog.ooooo.space/css/asciinema-player.min.b6e617d4bbd522b75ccfccc113e96175.css" /&gt;&lt;div id="demo1"&gt;&lt;/div&gt;
+&lt;script&gt;
+AsciinemaPlayer.create("https://asciinema.org/a/564652.cast", document.getElementById('demo1'), {
+"autoPlay": false ,"idleTimeLimit": 2 ,"loop": false ,"poster": "npt:0:01","rows": 24 ,"speed": 1 ,"theme": "monokai",
+});
+&lt;/script&gt;
+&lt;noscript&gt;&lt;blockquote&gt;&lt;p&gt;To run this asciicast without javascript, use &lt;code&gt;asciinema play https://asciinema.org/a/564652.cast&lt;/code&gt; with &lt;a href="https://asciinema.org/"&gt;Asciinema&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;&lt;/noscript&gt;</description></item><item><title>解决字幕组命名不规范问题：使用Episode-ReName工具</title><link>https://blog.ooooo.space/p/%E8%A7%A3%E5%86%B3%E5%AD%97%E5%B9%95%E7%BB%84%E5%91%BD%E5%90%8D%E4%B8%8D%E8%A7%84%E8%8C%83%E9%97%AE%E9%A2%98%E4%BD%BF%E7%94%A8episode-rename%E5%B7%A5%E5%85%B7/</link><pubDate>Sun, 15 May 2022 00:00:00 +0000</pubDate><guid>https://blog.ooooo.space/p/%E8%A7%A3%E5%86%B3%E5%AD%97%E5%B9%95%E7%BB%84%E5%91%BD%E5%90%8D%E4%B8%8D%E8%A7%84%E8%8C%83%E9%97%AE%E9%A2%98%E4%BD%BF%E7%94%A8episode-rename%E5%B7%A5%E5%85%B7/</guid><description>&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/uPic/2023-11/0sko2h.jpg" alt="Featured image of post 解决字幕组命名不规范问题：使用Episode-ReName工具" /&gt;&lt;h1 id="材料"&gt;材料
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Nriver/Episode-ReName" title="Episode-ReName"
+target="_blank" rel="noopener"
+&gt;Episode-ReName&lt;/a&gt;（以下简称 er）&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://zh.wikipedia.org/zh-cn/QBittorrent" title="qBittorrent"
+target="_blank" rel="noopener"
+&gt;qBittorrent&lt;/a&gt;（以下简称 qb）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="背景"&gt;背景
+&lt;/h1&gt;&lt;p&gt;很多字幕组种子的命名格式往往不是按照&lt;code&gt;SxxExx&lt;/code&gt;的格式来命名的，而 Emby，Plex 等媒体服务器都是以识别&lt;code&gt;SxxExx&lt;/code&gt;来刮削剧集的元数据。因此为了让这些媒体服务器识别剧集，我们往往需要重命名下载的文件。&lt;/p&gt;
+&lt;h1 id="期望"&gt;期望
+&lt;/h1&gt;&lt;p&gt;qb 下载剧集后，自动将不符合的资源名命名为形如&lt;code&gt;'剧集名 - SxxExx.mp4'&lt;/code&gt;&lt;/p&gt;
+&lt;h1 id="实践"&gt;实践
+&lt;/h1&gt;&lt;h2 id="流程"&gt;流程
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;克隆 er 源代码,使用 pyinstaller 将 EpisodeReName.py 编译成可执行程序。（作者在原仓库有提供 windows 的，win 用户可以直接下载使用，我是 linux 环境，因此自己编译）,将可执行程序放到你想要它在的文件夹下面（我直接上传群晖下的文件夹）&lt;/li&gt;
+&lt;li&gt;设置 qb 下的「Torrent 完成时运行外部程序」，填入程序路径和必要参数&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="编译可执行程序"&gt;编译可执行程序
+&lt;/h2&gt;&lt;p&gt;win 用户跳过此步骤，直接在原仓库下载作者提供的程序；linux 用户可以直接在本地使用 pyinstaller 来操作编译（docker 也行）。如果是 mac 用户则可以使用 docker 镜像来编译 linux 程序。m1 用户建议换台电脑，目前 docker 镜像编译有问题&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; /你的工作目录
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 拉取源代码&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git clone https://github.com/Nriver/Episode-ReName.git
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; Episode-ReName
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 安装所需 requirements （requirements中包含了pyinstaller，如果是docker编译，可以把pyinstaller去掉）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pip3 install -r requirements.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 编译（非docker方式）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pyinstaller -F EpisodeReName.py
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 编译（docker方式）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;docker run -v &lt;span class="s2"&gt;&amp;#34;&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;&lt;span class="nb"&gt;pwd&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;:/src/&amp;#34;&lt;/span&gt; cdrx/pyinstaller-linux
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 移动编译后程序到你想要的文件夹。&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;mv ./dist/linux/EpisodeReName anywhere
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 我是在mac上编译的，因此把它复制到我的群晖上&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;scp ./dist/linux/EpisodeReName shelken@192.168.0.80:/volume1/docker/qb-web/script/Episode-ReName/dist/EpisodeReName
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="设置-qb-执行程序"&gt;设置 qb 执行程序
+&lt;/h2&gt;&lt;p&gt;打开工具-&amp;gt;选项-&amp;gt;下载。开启「Torrent 完成时运行外部程序」，填入你的程序地址&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/PicGo/2023-11/a8fd15af.png"
+loading="lazy"
+alt="image-20220515171458914"
+&gt;&lt;/p&gt;
+&lt;p&gt;参数解释：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;span class="lnt"&gt;7
+&lt;/span&gt;&lt;span class="lnt"&gt;8
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;qb参数：
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;%F：如果种子是单文件的，那么输出则为：/保存路径/xxxxx.mp4；如果是多文件。那么则会是: /保存路径/根目录名。
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;er参数：（这部分详细可以去看原文档，这里只介绍我使用的）
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;--path：目标路径，可以是单文件，可以是目录，目录会处理所有该目录下文件
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;--delay: 延迟多久操作，默认为0秒不等待，这个参数主要是配合qbitorrent使用, 避免qb锁定文件导致重命名失败. 一般停止做种15秒后在操作能确保文件被释放
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;--name_format：自定义重命名格式, 参数需要加引号 默认为 &amp;#34;S{season}E{ep}&amp;#34; 可以选择性加入 series系列名称 如 &amp;#34;{series} - S{season}E{ep}&amp;#34;。这里我使用了第二种格式。
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;举例:
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/volume1/docker/qb-web/script/Episode-ReName/dist/EpisodeReName --path=&amp;#34;%F&amp;#34; --delay=15 --name_format=&amp;#34;{series} - S{season}E{ep}&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h1 id="技巧"&gt;技巧
+&lt;/h1&gt;&lt;h2 id="查看-qb-日志"&gt;查看 qb 日志
+&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# volume1：取决于你套件安装在哪个存储空间&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;cat /volume1/&lt;span class="se"&gt;\@&lt;/span&gt;appstore/qBittorrent/qBittorrent_conf/data/logs/qbittorrent.log
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="给可执行程序赋权"&gt;给可执行程序赋权
+&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 如果不能执行程序，尝试给EpisodeReName执行程序赋予可执行权限&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;chmod +x /所在目录/EpisodeReName
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="多季番剧tmdb集数适配"&gt;多季番剧tmdb集数适配
+&lt;/h2&gt;&lt;p&gt;对于有多季的番剧, 比如鬼灭之刃28集, 在tmdb里没有第28集, 而是第2季第2集, 要正确削刮需要从S02E28改成S02E02.&lt;/p&gt;
+&lt;p&gt;这时候可以在鬼灭之刃的&lt;code&gt;Season 2&lt;/code&gt;文件夹中添加一个&lt;code&gt;all.txt&lt;/code&gt;文件, 里面写上一个数字, 会在自动重命名的时候减掉这个数字. 比如上面的例子就需要在&lt;code&gt;all.txt&lt;/code&gt;填入26, 自动重命名就会把S02E28改成S02E02, 这样就能正常削刮了.&lt;/p&gt;
+&lt;h1 id="注意"&gt;注意
+&lt;/h1&gt;&lt;h2 id="文件夹命名格式"&gt;文件夹命名格式
+&lt;/h2&gt;&lt;p&gt;剧名和季数是根据文件夹命名来识别的，集数是根据文件名的数字。&lt;/p&gt;
+&lt;h3 id="剧名与季数"&gt;剧名与季数
+&lt;/h3&gt;&lt;p&gt;形如：/剧集目录/剧名/Season 1/&lt;/p&gt;
+&lt;p&gt;季数命名格式要求：Season1 / Season 1 / s1 / S1&lt;/p&gt;
+&lt;p&gt;举例：/volume1/Video/watch/夏日重现/s1&lt;/p&gt;
+&lt;h3 id="集数"&gt;集数
+&lt;/h3&gt;&lt;p&gt;形如：/剧集目录/剧名/Season 1/xxxx[01]xxxxxx.mp4&lt;/p&gt;
+&lt;p&gt;集数命名匹配的正则：会匹配在括号（各种括号）内的数字，数字规则如下，以找到的第一个符合项作为集数&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;patterns&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;# 1到4位数字&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="s1"&gt;&amp;#39;(\d{1,4}(\.5)?)&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;# 特殊文字处理&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="s1"&gt;&amp;#39;第(\d{1,4}(\.5)?)集&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="s1"&gt;&amp;#39;第(\d{1,4}(\.5)?)话&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="s1"&gt;&amp;#39;第(\d{1,4}(\.5)?)話&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="s1"&gt;&amp;#39;[Ee][Pp](\d{1,4}(\.5 &amp;#34;Ee][Pp&amp;#34;)?)&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="s1"&gt;&amp;#39;[Ee](\d{1,4}(\.5 &amp;#34;Ee&amp;#34;)?)&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;# 兼容SP01等命名&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="s1"&gt;&amp;#39;[Ss][Pp](\d{1,4}(\.5 &amp;#34;Ss][Pp&amp;#34;)?)&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;# 兼容v2命名&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="s1"&gt;&amp;#39;(\d{1,4}(\.5)?)[Vv]?\d?&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;举例:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 输入：/volume1/Video/watch/夏日重现/s1/[Nekomoe kissaten][Summer Time Rendering][05][1080p][JPSC].mp4&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 输出：/volume1/Video/watch/夏日重现/s1/夏日重现 - S01E05.mp4&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="做种问题"&gt;做种问题
+&lt;/h2&gt;&lt;p&gt;qb 的「Torrent 完成时运行外部程序」功能，会在下载完资源的时候，立刻去执行程序，也就是说在下载完之后，我们的文件会被立刻重命名，这导致了我们做种会出现问题，因此我们无法做到下载后再把这个资源分享给其他人。目前也没有好的方式解决。可以考虑不是呀 qb 的这个功能，直接定时任务去执行程序，扫描固定的目录来重命名。&lt;/p&gt;</description></item><item><title>qBittorrent的RSS订阅下载指南</title><link>https://blog.ooooo.space/p/qbittorrent%E7%9A%84rss%E8%AE%A2%E9%98%85%E4%B8%8B%E8%BD%BD%E6%8C%87%E5%8D%97/</link><pubDate>Sat, 14 May 2022 00:00:00 +0000</pubDate><guid>https://blog.ooooo.space/p/qbittorrent%E7%9A%84rss%E8%AE%A2%E9%98%85%E4%B8%8B%E8%BD%BD%E6%8C%87%E5%8D%97/</guid><description>&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/uPic/2023-11/TrVKhx.png" alt="Featured image of post qBittorrent的RSS订阅下载指南" /&gt;&lt;h1 id="材料"&gt;材料
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;qBittorrent（&lt;a class="link" href="https://zh.wikipedia.org/zh-cn/QBittorrent" title="wiki"
+target="_blank" rel="noopener"
+&gt;wiki&lt;/a&gt;）（以下简称 qb）&lt;/li&gt;
+&lt;li&gt;支持 rss 订阅的种子站（e.g. &lt;a class="link" href="https://nyaa.si/" title="nyaa"
+target="_blank" rel="noopener"
+&gt;nyaa&lt;/a&gt;(&lt;a class="link" href="https://zh.wikipedia.org/wiki/Nyaa_Torrents" title="wiki"
+target="_blank" rel="noopener"
+&gt;wiki&lt;/a&gt;)）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="实现"&gt;实现
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;打开 qb 配置页面，我的是部署在群晖的 qb，因此使用 web 页面来管理；如果是程序也一样。将启用 rss 订阅打开，间隔与数目最大值根据自定，然后将下面的「自动下载」打开，打开后我们才能在 rss 订阅更新时自动下载你订阅的资源。&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/PicGo/2023-11/f1d3767f.png"
+loading="lazy"
+alt="image-20220514141431969"
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;然后点右侧的 「RSS」&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/PicGo/2023-11/5b8d4dd7.png"
+loading="lazy"
+alt="image-20220514142037691"
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;然后我们先离开一下 qb，去你需要订阅资源的 bt 下载站。这里以我自己的需求做演示，我们来到「nyaa」;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;首先，我确定了我需要的订阅的内容：是&lt;code&gt;喵萌奶茶屋字幕组&lt;/code&gt;翻译的&lt;code&gt;夏日重现&lt;/code&gt;，并只要 &lt;code&gt;1080p&lt;/code&gt; 的资源内容。这里我搜索「喵萌奶茶屋 夏日重现 1080p」，可以看到结果非常符合我的预期。因为字幕组的命名基本是固定的，所以这个搜索结果基本是稳定的。&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/PicGo/2023-11/4ef9fb73.png"
+loading="lazy"
+alt="image-20220514142759551"
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;点击 RSS&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/PicGo/2023-11/6f61e324.png"
+loading="lazy"
+alt="image-20220514143533237"
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;可以看到地址 url 变了，因此我们知道，只要在原来的内容加上&lt;code&gt;page=rss&lt;/code&gt;，那么就拿到我们的 &lt;code&gt;rss&lt;/code&gt; 订阅地址&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;原 url：
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;https://nyaa.si/?f=0&amp;amp;c=0_0&amp;amp;q=%E5%96%B5%E8%90%8C%E5%A5%B6%E8%8C%B6%E5%B1%8B+%E5%A4%8F%E6%97%A5%E9%87%8D%E7%8E%B0+1080p
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;新 url:
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;https://nyaa.si/?c=0_0&amp;amp;f=0&amp;amp;q=%E5%96%B5%E8%90%8C%E5%A5%B6%E8%8C%B6%E5%B1%8B+%E5%A4%8F%E6%97%A5%E9%87%8D%E7%8E%B0+1080p&amp;amp;page=rss
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;回到 qb 界面，订阅 rss&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/PicGo/2023-11/6789a4a8.png"
+loading="lazy"
+alt="image-20220514150256737"
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;然后打开&lt;code&gt;rss下载器&lt;/code&gt;，新建一个下载规则；这里我讲解一下规则定义。&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/PicGo/2023-11/b487994c.png"
+loading="lazy"
+alt="image-20220514150525225"
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;空格&lt;/code&gt;代表&lt;code&gt;与&lt;/code&gt;关系，即这些关键词都必须有才匹配上。&lt;code&gt;|&lt;/code&gt;代表&lt;code&gt;或&lt;/code&gt;关系，即只要有一个关键词命中就匹配，&lt;code&gt;?&lt;/code&gt;代表一个字符，&lt;code&gt;*&lt;/code&gt;代表 0 或多个字符。这里我们甚至可以使用正则表达式，能实现更加复杂的限制。&lt;/p&gt;
+&lt;p&gt;这里我的&lt;code&gt;必须包含&lt;/code&gt;则进一步限制当前规则的下匹配资源的条件。&lt;code&gt;必须不含&lt;/code&gt;里的&lt;code&gt;合集&lt;/code&gt;则是考虑到字幕组会在番剧结束后打包一个合集目录，一次我们把带有&lt;code&gt;合集&lt;/code&gt;字样的资源排除掉。由于我之前下载过这些剧集，因此我把 1-3 的内容也排除掉。&lt;code&gt;剧集过滤器&lt;/code&gt;在这里是没用的，因为大部分番剧字幕组没有按照欧美剧集的格式来命名（形如：S01E01）。因此这里没有作用。&lt;code&gt;分类&lt;/code&gt;与&lt;code&gt;保存目录&lt;/code&gt;可以自定义。可能你的每个规则对应多个 rss 订阅，也可以只对应一个 rss 订阅，这里完全看自己习惯和方式，&lt;code&gt;添加后不开始下载&lt;/code&gt;这里我选择从不，这样会关联规则和订阅后，自动下载未下载过的匹配的订阅资源。&lt;code&gt;布局&lt;/code&gt;按全局就行，不是那么重要。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;然后将你&lt;code&gt;配置好的规则&lt;/code&gt;和你&lt;code&gt;订阅的RSS链接&lt;/code&gt;进行关联，保存&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/PicGo/2023-11/a9c9770d.png"
+loading="lazy"
+alt="image-20220514152624596"
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;至此，你的 qb 每隔 xx 分钟去刷新订阅，当有新资源发布在种子网站时，qb 会自动下载符合你定义的资源，并保存在你定义的目录下。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>优雅观看新番：B站客户端使用指南</title><link>https://blog.ooooo.space/p/%E4%BC%98%E9%9B%85%E8%A7%82%E7%9C%8B%E6%96%B0%E7%95%AAb%E7%AB%99%E5%AE%A2%E6%88%B7%E7%AB%AF%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</link><pubDate>Fri, 01 Apr 2022 00:00:00 +0000</pubDate><guid>https://blog.ooooo.space/p/%E4%BC%98%E9%9B%85%E8%A7%82%E7%9C%8B%E6%96%B0%E7%95%AAb%E7%AB%99%E5%AE%A2%E6%88%B7%E7%AB%AF%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</guid><description>&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/PicGo/2023-11/bcff2d81.jpg" alt="Featured image of post 优雅观看新番：B站客户端使用指南" /&gt;&lt;h2 id="声明"&gt;声明
+&lt;/h2&gt;&lt;p&gt;不提供涉及 APP 的下载及其他使用教程&lt;/p&gt;
+&lt;h2 id="前提"&gt;前提
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;知道 QuanX 的基本使用逻辑，以及基本的概念&lt;/li&gt;
+&lt;li&gt;有自我修改部分代码能力和上 github 或者其他托管代码平台的能力&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="学习资源来源"&gt;学习资源来源
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/NobyDa/Script" title="脚本原作者仓库"
+target="_blank" rel="noopener"
+&gt;脚本原作者仓库&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/NobyDa/Script/blob/master/Surge/JS/Bili_Auto_Regions.js" title="Bili_Auto_Region脚本"
+target="_blank" rel="noopener"
+&gt;Bili_Auto_Region 脚本&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="效果"&gt;效果
+&lt;/h2&gt;&lt;h3 id="效果-1"&gt;效果 1
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;进入 B 站客户端&lt;/li&gt;
+&lt;li&gt;进入『首页』，点击『追番』&lt;/li&gt;
+&lt;li&gt;找到番剧『进击的巨人最终季』&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/PicGo/2023-11/bcff2d81.jpg"
+loading="lazy"
+alt="19CC3738-4345-4CAB-896F-A21B8B051B7C_1_201_a"
+&gt;&lt;/li&gt;
+&lt;li&gt;点击进入，脚本会自动将代理节点切换设置的代理分组&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/PicGo/2023-11/f842d577.jpg"
+loading="lazy"
+alt="9C12ABCB-933D-4C5D-8660-390BAFF3631B_1_201_a"
+&gt;&lt;/li&gt;
+&lt;li&gt;如果出现『找不到页面』，点击页面的『重新加载』或刷新页面，进入番剧观看页面，正常观看&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/PicGo/2023-11/eba838c0.jpg"
+loading="lazy"
+alt="E0691890-CF30-4798-8B4C-4E3FBD6AB387_1_201_a"
+&gt;&lt;/li&gt;
+&lt;li&gt;退出观看页，脚本自动切换为直连&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/PicGo/2023-11/24ec06dc.jpg"
+loading="lazy"
+alt="3D637A3B-F675-4DA0-B67E-E697B6FB1953_1_201_a"
+&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="效果-2"&gt;效果 2
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;进入 B 站客户端&lt;/li&gt;
+&lt;li&gt;点击『输入框』&lt;/li&gt;
+&lt;li&gt;输入『进击的巨人 港』&lt;/li&gt;
+&lt;li&gt;脚本自动切换代理分组&lt;/li&gt;
+&lt;li&gt;页面显示『进击的巨人』番剧结果&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/PicGo/2023-11/60b7f5f4.jpg"
+loading="lazy"
+alt="941D38C8-4229-4899-9A34-9A25D070B229_1_201_a"
+&gt;&lt;/li&gt;
+&lt;li&gt;点击『立即观看』，进入观看页&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="优点"&gt;优点
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;不用再每次看港澳台番剧时自己手动切成全局，看完后又切换回规则模式，全自动。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="实践"&gt;实践
+&lt;/h2&gt;&lt;h3 id="准备"&gt;准备
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;带有 ios 系统的 iPhone&lt;/li&gt;
+&lt;li&gt;一个 QuanX App&lt;/li&gt;
+&lt;li&gt;『Bili_Auto_Region 脚本』&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="修改原有脚本"&gt;修改原有脚本
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;到『脚本原作者仓库』，fork 该仓库&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;加入『StreamingSE』规则集（必须）&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# 绑定相关select或static策略组，并且需要具有相关的区域代理服务器纳入您的子策略中，子策略可以是服务器也可以是其他区域策略组．
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;https://raw.githubusercontent.com/DivineEngine/Profiles/master/Quantumult/Filter/StreamingMedia/StreamingSE.list
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;设置该规则集的『策略偏好』为自己的『父策略组』（例如我设为 『BiliGroup』）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;添加几个子策略组（如台湾 or 香港）（这里涉及到策略组的节点选择策略，自己了解）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;修改 &lt;strong&gt;Surge/JS/Bili_Auto_Regions.js&lt;/strong&gt;，提交更改&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;span class="lnt"&gt;7
+&lt;/span&gt;&lt;span class="lnt"&gt;8
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-javascript" data-lang="javascript"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;//找到如下代码块，删除如下中文，修改成自己创建的策略组名
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;&lt;/span&gt; &lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;Group&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;read&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;BiliArea_Policy&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;||&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;你的父策略组（BiliGroup）&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;//Your blibli policy group name.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;&lt;/span&gt; &lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;CN&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;read&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;BiliArea_CN&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;||&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;DIRECT&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;//Your China sub-policy name.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;&lt;/span&gt; &lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;TW&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;read&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;BiliArea_TW&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;||&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;台湾子策略组&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;//Your Taiwan sub-policy name.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;&lt;/span&gt; &lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;HK&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;read&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;BiliArea_HK&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;||&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;香港子策略组&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;//Your HongKong sub-policy name.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;&lt;/span&gt; &lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;DF&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;read&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;BiliArea_DF&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;||&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;请求失败后的策略组&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;//Sub-policy name used after region is blocked(e.g. url 404)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;&lt;/span&gt; &lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;off&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;read&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;BiliArea_disabled&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;||&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;在某些wifi下不转换策略组&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;//WiFi blacklist(disable region change), separated by commas.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;&lt;/span&gt; &lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;current&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kr"&gt;await&lt;/span&gt; &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;getPolicy&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;Group&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在 &lt;strong&gt;QuantumultX/&lt;/strong&gt; 目录下（或其他目录），新增两个文件，一个『分流』，一个『重写』，举例：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;#『重写』引用：Bili_Region.conf
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# start-------------
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;hostname = ap?.bilibili.com, ap?.biliapi.net
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;^https:\/\/ap(p|i)\.bili(bili|api)\.(com|net)\/(pgc\/view\/v\d\/app\/season|x\/v\d\/search\/defaultwords)\?access_key url script-response-body https://raw.githubusercontent.com/你的用户名/Script/master/Surge/JS/Bili_Auto_Regions.js
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# 适用于搜索指定地区的番剧（该脚本为『效果2』的实现，根据自身需要选择）
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;^https:\/\/ap(p|i)\.bili(bili|api)\.(com|net)\/x\/v\d\/search(\/type)?\?.+?%20(%E6%B8%AF|%E5%8F%B0|%E4%B8%AD)&amp;amp; url script-request-header https://raw.githubusercontent.com/你的用户名/Script/master/Surge/JS/Bili_Auto_Regions.js
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# end--------------
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;#『分流』引用：Bili_Region.list
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# start-----------------
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ip-cidr, 203.107.1.1/24, reject
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# end--------------------
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;打开 App；将以上两个文件『分流』与『重写』分别引用；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;最后，在 QuanX -&amp;gt; 其他设置 -&amp;gt; VPN 中，关闭 MPM（温和策略机制）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;至此，所有需要做的都已经完成，此时，进入 B 站客户端，实现以上的效果&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="why"&gt;Why？
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;为什么？这部分将对『实践』中的部分操作做解释。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;为什么 fork 仓库？&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;因为需要修改原脚本相关分组的名字，这部分由自己定义；而且涉及到『重写』与『分流』引用，虽然不是必须，但是强烈建议这样做；可以方便地管理这些规则的开关；
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;为什么关闭 MPM&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;主要是在切换策略时打断之前的连接，让策略生效（个人认为）
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="已知问题"&gt;已知问题
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;在长时间使用 B 站一段时间后，会发现脚本有失效情况，这个时候退出 B 站重新进入可以解决。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="最后"&gt;最后
+&lt;/h2&gt;&lt;p&gt;如果有代码方面的时候问题，请到原作者脚本仓库上提 issue。&lt;/p&gt;
+&lt;p&gt;如果有关于以上实践部分的问题，可以在下方评论提问。本教程也是参考了原脚本的注释部分，自己实践得来，建议在问之前把注释看一遍；不提供除实践部分之外的问题。如果是我知道的，我会提供关键词给你，然后请自己去问谷歌。&lt;/p&gt;</description></item></channel></rss>

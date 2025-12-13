@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>输入法 on</title><link>https://blog.ooooo.space/tags/%E8%BE%93%E5%85%A5%E6%B3%95/</link><description>Recent content in 输入法 on</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 19 Nov 2023 21:21:57 +0800</lastBuildDate><atom:link href="https://blog.ooooo.space/tags/%E8%BE%93%E5%85%A5%E6%B3%95/feed.xml" rel="self" type="application/rss+xml"/><item><title>简单地使用开源的输入法 rime</title><link>https://blog.ooooo.space/p/%E7%AE%80%E5%8D%95%E5%9C%B0%E4%BD%BF%E7%94%A8%E5%BC%80%E6%BA%90%E7%9A%84%E8%BE%93%E5%85%A5%E6%B3%95-rime/</link><pubDate>Sun, 19 Nov 2023 21:21:57 +0800</pubDate><guid>https://blog.ooooo.space/p/%E7%AE%80%E5%8D%95%E5%9C%B0%E4%BD%BF%E7%94%A8%E5%BC%80%E6%BA%90%E7%9A%84%E8%BE%93%E5%85%A5%E6%B3%95-rime/</guid><description>&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/uPic/2023-11/kFmrVz.png" alt="Featured image of post 简单地使用开源的输入法 rime" /&gt;&lt;blockquote&gt;
+&lt;p&gt;这个项目帮助你：不需要配置复杂的配置；使用 git 来同步你的配置；及时地更新社区维护的词库&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a class="link" href="https://github.com/Mark24Code/rime-auto-deploy" target="_blank" rel="noopener"
+&gt;仓库地址Rime auto deploy&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;可以在项目的 readme 了解基本的用法，例如安装，升级等操作。这里我主要就常用的几个操作进行介绍来快速入门。&lt;/p&gt;
+&lt;h1 id="安装到你的新设备"&gt;安装到你的新设备
+&lt;/h1&gt;&lt;p&gt;在进行安装前，你应该将这个项目 fork 下来，方便我们后续的修改配置和同步配置&lt;/p&gt;
+&lt;p&gt;这里你只需要看项目的操作&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Mark24Code/rime-auto-deploy#macoslinux-%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95" target="_blank" rel="noopener"
+&gt;MacOS/Linux 使用方法&lt;/a&gt; 这里告诉你基本的在新的设备上安装操作。记得 clone 自己的项目地址&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="配置"&gt;配置
+&lt;/h1&gt;&lt;h2 id="流程"&gt;流程
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;当你需要自定义一些配置时，你只需要关注一个目录，那就是 custom 目录&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;修改在 custom 目录下的配置文件&lt;/li&gt;
+&lt;li&gt;重新运行 &lt;code&gt;installer. rb&lt;/code&gt; ，选 2 手动模式，再选 4，复制你的配置到 rime 的配置。&lt;/li&gt;
+&lt;li&gt;然后重新部署 rime。快捷键 &lt;code&gt;alt + ctrl + ` &lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;git add commit push&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="切换你的输入方案"&gt;切换你的输入方案
+&lt;/h2&gt;&lt;p&gt;如果你是个双拼用户，那么可以按 &lt;code&gt;ctrl + `&lt;/code&gt; 来让切换你的双拼方案&lt;/p&gt;
+&lt;h2 id="切换输入法时保存已经输入的字符"&gt;切换输入法时保存已经输入的字符
+&lt;/h2&gt;&lt;p&gt;有时候，在输入中文时突然想要切换到英文。我的习惯是直接按右 &lt;code&gt;Shift&lt;/code&gt; 来切换，但是初次使用时发现已经输入的字被清除了，这个时候需要在 &lt;code&gt;custom/default.custom.yaml&lt;/code&gt; 去修改
+在你的 &lt;code&gt;switch_key.Shift_R&lt;/code&gt; 下，从 &lt;code&gt;clear&lt;/code&gt; 改为 &lt;code&gt;commit_code&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/PicGo/2023-11/c76a8a82.png"
+loading="lazy"
+alt="image.png"
+&gt;&lt;/p&gt;
+&lt;h2 id="在不同的应用中自动切换为中文或者英文输入法"&gt;在不同的应用中自动切换为中文或者英文输入法
+&lt;/h2&gt;&lt;p&gt;在 &lt;code&gt;custom/squirrel.custom.yaml&lt;/code&gt; 中添加你所安装的应用的配置，如下：&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/PicGo/2023-11/aec9b6da.png"
+loading="lazy"
+alt="image.png"
+&gt;&lt;/p&gt;
+&lt;h2 id="不同设备同步词库"&gt;不同设备同步词库
+&lt;/h2&gt;&lt;p&gt;在你的 &lt;code&gt;/Users/[yourname]/Library/Rime&lt;/code&gt; 目录下应该有 &lt;code&gt;installation.yaml&lt;/code&gt; 文件，编辑它，将 &lt;code&gt;installation_id&lt;/code&gt; 改为你喜欢的任意唯一的名，例如当前设备的名。在文件末尾加上 &lt;code&gt;sync_dir: &amp;quot;xxxx&amp;quot;&lt;/code&gt; ，xxxx 为你需要存放的目录，例如 iCloud 云目录。保存后，点击同步用户数据，即可在存放的目录下看到 &lt;code&gt;installation_id&lt;/code&gt; 为名的目录。&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/uPic/2024-01/DiQ1mQ.png"
+loading="lazy"
+alt="DiQ1mQ"
+&gt;&lt;/p&gt;
+&lt;h1 id="参考"&gt;参考
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/shelken/rime-auto-deploy" target="_blank" rel="noopener"
+&gt;我的配置&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://dvel.me/posts/rime-ice/" target="_blank" rel="noopener"
+&gt;雾凇拼音配置&lt;/a&gt;
+️&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>

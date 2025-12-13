@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>追番 on</title><link>https://blog.ooooo.space/categories/%E8%BF%BD%E7%95%AA/</link><description>Recent content in 追番 on</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 15 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.ooooo.space/categories/%E8%BF%BD%E7%95%AA/feed.xml" rel="self" type="application/rss+xml"/><item><title>解决字幕组命名不规范问题：使用Episode-ReName工具</title><link>https://blog.ooooo.space/p/%E8%A7%A3%E5%86%B3%E5%AD%97%E5%B9%95%E7%BB%84%E5%91%BD%E5%90%8D%E4%B8%8D%E8%A7%84%E8%8C%83%E9%97%AE%E9%A2%98%E4%BD%BF%E7%94%A8episode-rename%E5%B7%A5%E5%85%B7/</link><pubDate>Sun, 15 May 2022 00:00:00 +0000</pubDate><guid>https://blog.ooooo.space/p/%E8%A7%A3%E5%86%B3%E5%AD%97%E5%B9%95%E7%BB%84%E5%91%BD%E5%90%8D%E4%B8%8D%E8%A7%84%E8%8C%83%E9%97%AE%E9%A2%98%E4%BD%BF%E7%94%A8episode-rename%E5%B7%A5%E5%85%B7/</guid><description>&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/uPic/2023-11/0sko2h.jpg" alt="Featured image of post 解决字幕组命名不规范问题：使用Episode-ReName工具" /&gt;&lt;h1 id="材料"&gt;材料
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Nriver/Episode-ReName" title="Episode-ReName"
+target="_blank" rel="noopener"
+&gt;Episode-ReName&lt;/a&gt;（以下简称 er）&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://zh.wikipedia.org/zh-cn/QBittorrent" title="qBittorrent"
+target="_blank" rel="noopener"
+&gt;qBittorrent&lt;/a&gt;（以下简称 qb）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="背景"&gt;背景
+&lt;/h1&gt;&lt;p&gt;很多字幕组种子的命名格式往往不是按照&lt;code&gt;SxxExx&lt;/code&gt;的格式来命名的，而 Emby，Plex 等媒体服务器都是以识别&lt;code&gt;SxxExx&lt;/code&gt;来刮削剧集的元数据。因此为了让这些媒体服务器识别剧集，我们往往需要重命名下载的文件。&lt;/p&gt;
+&lt;h1 id="期望"&gt;期望
+&lt;/h1&gt;&lt;p&gt;qb 下载剧集后，自动将不符合的资源名命名为形如&lt;code&gt;'剧集名 - SxxExx.mp4'&lt;/code&gt;&lt;/p&gt;
+&lt;h1 id="实践"&gt;实践
+&lt;/h1&gt;&lt;h2 id="流程"&gt;流程
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;克隆 er 源代码,使用 pyinstaller 将 EpisodeReName.py 编译成可执行程序。（作者在原仓库有提供 windows 的，win 用户可以直接下载使用，我是 linux 环境，因此自己编译）,将可执行程序放到你想要它在的文件夹下面（我直接上传群晖下的文件夹）&lt;/li&gt;
+&lt;li&gt;设置 qb 下的「Torrent 完成时运行外部程序」，填入程序路径和必要参数&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="编译可执行程序"&gt;编译可执行程序
+&lt;/h2&gt;&lt;p&gt;win 用户跳过此步骤，直接在原仓库下载作者提供的程序；linux 用户可以直接在本地使用 pyinstaller 来操作编译（docker 也行）。如果是 mac 用户则可以使用 docker 镜像来编译 linux 程序。m1 用户建议换台电脑，目前 docker 镜像编译有问题&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; /你的工作目录
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 拉取源代码&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git clone https://github.com/Nriver/Episode-ReName.git
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; Episode-ReName
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 安装所需 requirements （requirements中包含了pyinstaller，如果是docker编译，可以把pyinstaller去掉）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pip3 install -r requirements.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 编译（非docker方式）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pyinstaller -F EpisodeReName.py
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 编译（docker方式）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;docker run -v &lt;span class="s2"&gt;&amp;#34;&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;&lt;span class="nb"&gt;pwd&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;:/src/&amp;#34;&lt;/span&gt; cdrx/pyinstaller-linux
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 移动编译后程序到你想要的文件夹。&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;mv ./dist/linux/EpisodeReName anywhere
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 我是在mac上编译的，因此把它复制到我的群晖上&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;scp ./dist/linux/EpisodeReName shelken@192.168.0.80:/volume1/docker/qb-web/script/Episode-ReName/dist/EpisodeReName
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="设置-qb-执行程序"&gt;设置 qb 执行程序
+&lt;/h2&gt;&lt;p&gt;打开工具-&amp;gt;选项-&amp;gt;下载。开启「Torrent 完成时运行外部程序」，填入你的程序地址&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/PicGo/2023-11/a8fd15af.png"
+loading="lazy"
+alt="image-20220515171458914"
+&gt;&lt;/p&gt;
+&lt;p&gt;参数解释：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;span class="lnt"&gt;7
+&lt;/span&gt;&lt;span class="lnt"&gt;8
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;qb参数：
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;%F：如果种子是单文件的，那么输出则为：/保存路径/xxxxx.mp4；如果是多文件。那么则会是: /保存路径/根目录名。
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;er参数：（这部分详细可以去看原文档，这里只介绍我使用的）
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;--path：目标路径，可以是单文件，可以是目录，目录会处理所有该目录下文件
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;--delay: 延迟多久操作，默认为0秒不等待，这个参数主要是配合qbitorrent使用, 避免qb锁定文件导致重命名失败. 一般停止做种15秒后在操作能确保文件被释放
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;--name_format：自定义重命名格式, 参数需要加引号 默认为 &amp;#34;S{season}E{ep}&amp;#34; 可以选择性加入 series系列名称 如 &amp;#34;{series} - S{season}E{ep}&amp;#34;。这里我使用了第二种格式。
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;举例:
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/volume1/docker/qb-web/script/Episode-ReName/dist/EpisodeReName --path=&amp;#34;%F&amp;#34; --delay=15 --name_format=&amp;#34;{series} - S{season}E{ep}&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h1 id="技巧"&gt;技巧
+&lt;/h1&gt;&lt;h2 id="查看-qb-日志"&gt;查看 qb 日志
+&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# volume1：取决于你套件安装在哪个存储空间&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;cat /volume1/&lt;span class="se"&gt;\@&lt;/span&gt;appstore/qBittorrent/qBittorrent_conf/data/logs/qbittorrent.log
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="给可执行程序赋权"&gt;给可执行程序赋权
+&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 如果不能执行程序，尝试给EpisodeReName执行程序赋予可执行权限&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;chmod +x /所在目录/EpisodeReName
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="多季番剧tmdb集数适配"&gt;多季番剧tmdb集数适配
+&lt;/h2&gt;&lt;p&gt;对于有多季的番剧, 比如鬼灭之刃28集, 在tmdb里没有第28集, 而是第2季第2集, 要正确削刮需要从S02E28改成S02E02.&lt;/p&gt;
+&lt;p&gt;这时候可以在鬼灭之刃的&lt;code&gt;Season 2&lt;/code&gt;文件夹中添加一个&lt;code&gt;all.txt&lt;/code&gt;文件, 里面写上一个数字, 会在自动重命名的时候减掉这个数字. 比如上面的例子就需要在&lt;code&gt;all.txt&lt;/code&gt;填入26, 自动重命名就会把S02E28改成S02E02, 这样就能正常削刮了.&lt;/p&gt;
+&lt;h1 id="注意"&gt;注意
+&lt;/h1&gt;&lt;h2 id="文件夹命名格式"&gt;文件夹命名格式
+&lt;/h2&gt;&lt;p&gt;剧名和季数是根据文件夹命名来识别的，集数是根据文件名的数字。&lt;/p&gt;
+&lt;h3 id="剧名与季数"&gt;剧名与季数
+&lt;/h3&gt;&lt;p&gt;形如：/剧集目录/剧名/Season 1/&lt;/p&gt;
+&lt;p&gt;季数命名格式要求：Season1 / Season 1 / s1 / S1&lt;/p&gt;
+&lt;p&gt;举例：/volume1/Video/watch/夏日重现/s1&lt;/p&gt;
+&lt;h3 id="集数"&gt;集数
+&lt;/h3&gt;&lt;p&gt;形如：/剧集目录/剧名/Season 1/xxxx[01]xxxxxx.mp4&lt;/p&gt;
+&lt;p&gt;集数命名匹配的正则：会匹配在括号（各种括号）内的数字，数字规则如下，以找到的第一个符合项作为集数&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;patterns&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;# 1到4位数字&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="s1"&gt;&amp;#39;(\d{1,4}(\.5)?)&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;# 特殊文字处理&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="s1"&gt;&amp;#39;第(\d{1,4}(\.5)?)集&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="s1"&gt;&amp;#39;第(\d{1,4}(\.5)?)话&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="s1"&gt;&amp;#39;第(\d{1,4}(\.5)?)話&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="s1"&gt;&amp;#39;[Ee][Pp](\d{1,4}(\.5 &amp;#34;Ee][Pp&amp;#34;)?)&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="s1"&gt;&amp;#39;[Ee](\d{1,4}(\.5 &amp;#34;Ee&amp;#34;)?)&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;# 兼容SP01等命名&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="s1"&gt;&amp;#39;[Ss][Pp](\d{1,4}(\.5 &amp;#34;Ss][Pp&amp;#34;)?)&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;# 兼容v2命名&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="s1"&gt;&amp;#39;(\d{1,4}(\.5)?)[Vv]?\d?&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;举例:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 输入：/volume1/Video/watch/夏日重现/s1/[Nekomoe kissaten][Summer Time Rendering][05][1080p][JPSC].mp4&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 输出：/volume1/Video/watch/夏日重现/s1/夏日重现 - S01E05.mp4&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="做种问题"&gt;做种问题
+&lt;/h2&gt;&lt;p&gt;qb 的「Torrent 完成时运行外部程序」功能，会在下载完资源的时候，立刻去执行程序，也就是说在下载完之后，我们的文件会被立刻重命名，这导致了我们做种会出现问题，因此我们无法做到下载后再把这个资源分享给其他人。目前也没有好的方式解决。可以考虑不是呀 qb 的这个功能，直接定时任务去执行程序，扫描固定的目录来重命名。&lt;/p&gt;</description></item><item><title>qBittorrent的RSS订阅下载指南</title><link>https://blog.ooooo.space/p/qbittorrent%E7%9A%84rss%E8%AE%A2%E9%98%85%E4%B8%8B%E8%BD%BD%E6%8C%87%E5%8D%97/</link><pubDate>Sat, 14 May 2022 00:00:00 +0000</pubDate><guid>https://blog.ooooo.space/p/qbittorrent%E7%9A%84rss%E8%AE%A2%E9%98%85%E4%B8%8B%E8%BD%BD%E6%8C%87%E5%8D%97/</guid><description>&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/uPic/2023-11/TrVKhx.png" alt="Featured image of post qBittorrent的RSS订阅下载指南" /&gt;&lt;h1 id="材料"&gt;材料
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;qBittorrent（&lt;a class="link" href="https://zh.wikipedia.org/zh-cn/QBittorrent" title="wiki"
+target="_blank" rel="noopener"
+&gt;wiki&lt;/a&gt;）（以下简称 qb）&lt;/li&gt;
+&lt;li&gt;支持 rss 订阅的种子站（e.g. &lt;a class="link" href="https://nyaa.si/" title="nyaa"
+target="_blank" rel="noopener"
+&gt;nyaa&lt;/a&gt;(&lt;a class="link" href="https://zh.wikipedia.org/wiki/Nyaa_Torrents" title="wiki"
+target="_blank" rel="noopener"
+&gt;wiki&lt;/a&gt;)）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="实现"&gt;实现
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;打开 qb 配置页面，我的是部署在群晖的 qb，因此使用 web 页面来管理；如果是程序也一样。将启用 rss 订阅打开，间隔与数目最大值根据自定，然后将下面的「自动下载」打开，打开后我们才能在 rss 订阅更新时自动下载你订阅的资源。&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/PicGo/2023-11/f1d3767f.png"
+loading="lazy"
+alt="image-20220514141431969"
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;然后点右侧的 「RSS」&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/PicGo/2023-11/5b8d4dd7.png"
+loading="lazy"
+alt="image-20220514142037691"
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;然后我们先离开一下 qb，去你需要订阅资源的 bt 下载站。这里以我自己的需求做演示，我们来到「nyaa」;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;首先，我确定了我需要的订阅的内容：是&lt;code&gt;喵萌奶茶屋字幕组&lt;/code&gt;翻译的&lt;code&gt;夏日重现&lt;/code&gt;，并只要 &lt;code&gt;1080p&lt;/code&gt; 的资源内容。这里我搜索「喵萌奶茶屋 夏日重现 1080p」，可以看到结果非常符合我的预期。因为字幕组的命名基本是固定的，所以这个搜索结果基本是稳定的。&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/PicGo/2023-11/4ef9fb73.png"
+loading="lazy"
+alt="image-20220514142759551"
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;点击 RSS&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/PicGo/2023-11/6f61e324.png"
+loading="lazy"
+alt="image-20220514143533237"
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;可以看到地址 url 变了，因此我们知道，只要在原来的内容加上&lt;code&gt;page=rss&lt;/code&gt;，那么就拿到我们的 &lt;code&gt;rss&lt;/code&gt; 订阅地址&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;原 url：
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;https://nyaa.si/?f=0&amp;amp;c=0_0&amp;amp;q=%E5%96%B5%E8%90%8C%E5%A5%B6%E8%8C%B6%E5%B1%8B+%E5%A4%8F%E6%97%A5%E9%87%8D%E7%8E%B0+1080p
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;新 url:
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;https://nyaa.si/?c=0_0&amp;amp;f=0&amp;amp;q=%E5%96%B5%E8%90%8C%E5%A5%B6%E8%8C%B6%E5%B1%8B+%E5%A4%8F%E6%97%A5%E9%87%8D%E7%8E%B0+1080p&amp;amp;page=rss
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;回到 qb 界面，订阅 rss&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/PicGo/2023-11/6789a4a8.png"
+loading="lazy"
+alt="image-20220514150256737"
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;然后打开&lt;code&gt;rss下载器&lt;/code&gt;，新建一个下载规则；这里我讲解一下规则定义。&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/PicGo/2023-11/b487994c.png"
+loading="lazy"
+alt="image-20220514150525225"
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;空格&lt;/code&gt;代表&lt;code&gt;与&lt;/code&gt;关系，即这些关键词都必须有才匹配上。&lt;code&gt;|&lt;/code&gt;代表&lt;code&gt;或&lt;/code&gt;关系，即只要有一个关键词命中就匹配，&lt;code&gt;?&lt;/code&gt;代表一个字符，&lt;code&gt;*&lt;/code&gt;代表 0 或多个字符。这里我们甚至可以使用正则表达式，能实现更加复杂的限制。&lt;/p&gt;
+&lt;p&gt;这里我的&lt;code&gt;必须包含&lt;/code&gt;则进一步限制当前规则的下匹配资源的条件。&lt;code&gt;必须不含&lt;/code&gt;里的&lt;code&gt;合集&lt;/code&gt;则是考虑到字幕组会在番剧结束后打包一个合集目录，一次我们把带有&lt;code&gt;合集&lt;/code&gt;字样的资源排除掉。由于我之前下载过这些剧集，因此我把 1-3 的内容也排除掉。&lt;code&gt;剧集过滤器&lt;/code&gt;在这里是没用的，因为大部分番剧字幕组没有按照欧美剧集的格式来命名（形如：S01E01）。因此这里没有作用。&lt;code&gt;分类&lt;/code&gt;与&lt;code&gt;保存目录&lt;/code&gt;可以自定义。可能你的每个规则对应多个 rss 订阅，也可以只对应一个 rss 订阅，这里完全看自己习惯和方式，&lt;code&gt;添加后不开始下载&lt;/code&gt;这里我选择从不，这样会关联规则和订阅后，自动下载未下载过的匹配的订阅资源。&lt;code&gt;布局&lt;/code&gt;按全局就行，不是那么重要。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;然后将你&lt;code&gt;配置好的规则&lt;/code&gt;和你&lt;code&gt;订阅的RSS链接&lt;/code&gt;进行关联，保存&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/PicGo/2023-11/a9c9770d.png"
+loading="lazy"
+alt="image-20220514152624596"
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;至此，你的 qb 每隔 xx 分钟去刷新订阅，当有新资源发布在种子网站时，qb 会自动下载符合你定义的资源，并保存在你定义的目录下。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>优雅观看新番：B站客户端使用指南</title><link>https://blog.ooooo.space/p/%E4%BC%98%E9%9B%85%E8%A7%82%E7%9C%8B%E6%96%B0%E7%95%AAb%E7%AB%99%E5%AE%A2%E6%88%B7%E7%AB%AF%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</link><pubDate>Fri, 01 Apr 2022 00:00:00 +0000</pubDate><guid>https://blog.ooooo.space/p/%E4%BC%98%E9%9B%85%E8%A7%82%E7%9C%8B%E6%96%B0%E7%95%AAb%E7%AB%99%E5%AE%A2%E6%88%B7%E7%AB%AF%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</guid><description>&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/PicGo/2023-11/bcff2d81.jpg" alt="Featured image of post 优雅观看新番：B站客户端使用指南" /&gt;&lt;h2 id="声明"&gt;声明
+&lt;/h2&gt;&lt;p&gt;不提供涉及 APP 的下载及其他使用教程&lt;/p&gt;
+&lt;h2 id="前提"&gt;前提
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;知道 QuanX 的基本使用逻辑，以及基本的概念&lt;/li&gt;
+&lt;li&gt;有自我修改部分代码能力和上 github 或者其他托管代码平台的能力&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="学习资源来源"&gt;学习资源来源
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/NobyDa/Script" title="脚本原作者仓库"
+target="_blank" rel="noopener"
+&gt;脚本原作者仓库&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/NobyDa/Script/blob/master/Surge/JS/Bili_Auto_Regions.js" title="Bili_Auto_Region脚本"
+target="_blank" rel="noopener"
+&gt;Bili_Auto_Region 脚本&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="效果"&gt;效果
+&lt;/h2&gt;&lt;h3 id="效果-1"&gt;效果 1
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;进入 B 站客户端&lt;/li&gt;
+&lt;li&gt;进入『首页』，点击『追番』&lt;/li&gt;
+&lt;li&gt;找到番剧『进击的巨人最终季』&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/PicGo/2023-11/bcff2d81.jpg"
+loading="lazy"
+alt="19CC3738-4345-4CAB-896F-A21B8B051B7C_1_201_a"
+&gt;&lt;/li&gt;
+&lt;li&gt;点击进入，脚本会自动将代理节点切换设置的代理分组&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/PicGo/2023-11/f842d577.jpg"
+loading="lazy"
+alt="9C12ABCB-933D-4C5D-8660-390BAFF3631B_1_201_a"
+&gt;&lt;/li&gt;
+&lt;li&gt;如果出现『找不到页面』，点击页面的『重新加载』或刷新页面，进入番剧观看页面，正常观看&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/PicGo/2023-11/eba838c0.jpg"
+loading="lazy"
+alt="E0691890-CF30-4798-8B4C-4E3FBD6AB387_1_201_a"
+&gt;&lt;/li&gt;
+&lt;li&gt;退出观看页，脚本自动切换为直连&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/PicGo/2023-11/24ec06dc.jpg"
+loading="lazy"
+alt="3D637A3B-F675-4DA0-B67E-E697B6FB1953_1_201_a"
+&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="效果-2"&gt;效果 2
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;进入 B 站客户端&lt;/li&gt;
+&lt;li&gt;点击『输入框』&lt;/li&gt;
+&lt;li&gt;输入『进击的巨人 港』&lt;/li&gt;
+&lt;li&gt;脚本自动切换代理分组&lt;/li&gt;
+&lt;li&gt;页面显示『进击的巨人』番剧结果&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/PicGo/2023-11/60b7f5f4.jpg"
+loading="lazy"
+alt="941D38C8-4229-4899-9A34-9A25D070B229_1_201_a"
+&gt;&lt;/li&gt;
+&lt;li&gt;点击『立即观看』，进入观看页&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="优点"&gt;优点
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;不用再每次看港澳台番剧时自己手动切成全局，看完后又切换回规则模式，全自动。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="实践"&gt;实践
+&lt;/h2&gt;&lt;h3 id="准备"&gt;准备
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;带有 ios 系统的 iPhone&lt;/li&gt;
+&lt;li&gt;一个 QuanX App&lt;/li&gt;
+&lt;li&gt;『Bili_Auto_Region 脚本』&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="修改原有脚本"&gt;修改原有脚本
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;到『脚本原作者仓库』，fork 该仓库&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;加入『StreamingSE』规则集（必须）&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# 绑定相关select或static策略组，并且需要具有相关的区域代理服务器纳入您的子策略中，子策略可以是服务器也可以是其他区域策略组．
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;https://raw.githubusercontent.com/DivineEngine/Profiles/master/Quantumult/Filter/StreamingMedia/StreamingSE.list
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;设置该规则集的『策略偏好』为自己的『父策略组』（例如我设为 『BiliGroup』）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;添加几个子策略组（如台湾 or 香港）（这里涉及到策略组的节点选择策略，自己了解）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;修改 &lt;strong&gt;Surge/JS/Bili_Auto_Regions.js&lt;/strong&gt;，提交更改&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;span class="lnt"&gt;7
+&lt;/span&gt;&lt;span class="lnt"&gt;8
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-javascript" data-lang="javascript"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;//找到如下代码块，删除如下中文，修改成自己创建的策略组名
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;&lt;/span&gt; &lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;Group&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;read&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;BiliArea_Policy&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;||&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;你的父策略组（BiliGroup）&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;//Your blibli policy group name.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;&lt;/span&gt; &lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;CN&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;read&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;BiliArea_CN&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;||&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;DIRECT&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;//Your China sub-policy name.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;&lt;/span&gt; &lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;TW&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;read&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;BiliArea_TW&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;||&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;台湾子策略组&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;//Your Taiwan sub-policy name.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;&lt;/span&gt; &lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;HK&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;read&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;BiliArea_HK&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;||&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;香港子策略组&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;//Your HongKong sub-policy name.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;&lt;/span&gt; &lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;DF&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;read&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;BiliArea_DF&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;||&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;请求失败后的策略组&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;//Sub-policy name used after region is blocked(e.g. url 404)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;&lt;/span&gt; &lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;off&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;read&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;BiliArea_disabled&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;||&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;在某些wifi下不转换策略组&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;//WiFi blacklist(disable region change), separated by commas.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;&lt;/span&gt; &lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;current&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kr"&gt;await&lt;/span&gt; &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;getPolicy&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;Group&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在 &lt;strong&gt;QuantumultX/&lt;/strong&gt; 目录下（或其他目录），新增两个文件，一个『分流』，一个『重写』，举例：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;#『重写』引用：Bili_Region.conf
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# start-------------
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;hostname = ap?.bilibili.com, ap?.biliapi.net
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;^https:\/\/ap(p|i)\.bili(bili|api)\.(com|net)\/(pgc\/view\/v\d\/app\/season|x\/v\d\/search\/defaultwords)\?access_key url script-response-body https://raw.githubusercontent.com/你的用户名/Script/master/Surge/JS/Bili_Auto_Regions.js
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# 适用于搜索指定地区的番剧（该脚本为『效果2』的实现，根据自身需要选择）
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;^https:\/\/ap(p|i)\.bili(bili|api)\.(com|net)\/x\/v\d\/search(\/type)?\?.+?%20(%E6%B8%AF|%E5%8F%B0|%E4%B8%AD)&amp;amp; url script-request-header https://raw.githubusercontent.com/你的用户名/Script/master/Surge/JS/Bili_Auto_Regions.js
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# end--------------
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;#『分流』引用：Bili_Region.list
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# start-----------------
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ip-cidr, 203.107.1.1/24, reject
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# end--------------------
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;打开 App；将以上两个文件『分流』与『重写』分别引用；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;最后，在 QuanX -&amp;gt; 其他设置 -&amp;gt; VPN 中，关闭 MPM（温和策略机制）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;至此，所有需要做的都已经完成，此时，进入 B 站客户端，实现以上的效果&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="why"&gt;Why？
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;为什么？这部分将对『实践』中的部分操作做解释。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;为什么 fork 仓库？&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;因为需要修改原脚本相关分组的名字，这部分由自己定义；而且涉及到『重写』与『分流』引用，虽然不是必须，但是强烈建议这样做；可以方便地管理这些规则的开关；
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;为什么关闭 MPM&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;主要是在切换策略时打断之前的连接，让策略生效（个人认为）
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="已知问题"&gt;已知问题
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;在长时间使用 B 站一段时间后，会发现脚本有失效情况，这个时候退出 B 站重新进入可以解决。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="最后"&gt;最后
+&lt;/h2&gt;&lt;p&gt;如果有代码方面的时候问题，请到原作者脚本仓库上提 issue。&lt;/p&gt;
+&lt;p&gt;如果有关于以上实践部分的问题，可以在下方评论提问。本教程也是参考了原脚本的注释部分，自己实践得来，建议在问之前把注释看一遍；不提供除实践部分之外的问题。如果是我知道的，我会提供关键词给你，然后请自己去问谷歌。&lt;/p&gt;</description></item></channel></rss>
