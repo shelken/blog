@@ -2,7 +2,7 @@
 title: 在不用Tailscale的情况下使用Tailscale
 description: 本文介绍了如何利用 Tailscale 的 funnel 功能，将本地部署的 headscale 开放到公网，从而解决 headscale 部署需要公网 IP 的限制。通过这种方式，可以使用 headscale 来让设备加入节点，而不需要使用 Tailscale。
 date: 2023-04-05T17:12:29+08:00
-image: https://public.image.ooooo.space/uPic/2023-11/gyzvPb.png
+image: https://cdn.jsdelivr.net/gh/shelken/picbed/uPic/2023-11/gyzvPb.png
 math: 
 license: 
 hidden: false

@@ -2,7 +2,7 @@
 title: 简单地使用开源的输入法 rime
 description: ""
 date: 2023-11-19T21:21:57+08:00
-image: https://public.image.ooooo.space/uPic/2023-11/kFmrVz.png
+image: https://cdn.jsdelivr.net/gh/shelken/picbed/uPic/2023-11/kFmrVz.png
 math:
 license:
 hidden: false
@@ -58,21 +58,21 @@ publish_time: 2023/11/19 21:21:57
 有时候，在输入中文时突然想要切换到英文。我的习惯是直接按右 `Shift` 来切换，但是初次使用时发现已经输入的字被清除了，这个时候需要在 `custom/default.custom.yaml` 去修改
 在你的 `switch_key.Shift_R` 下，从 `clear` 改为 `commit_code` 
 
-![image.png](https://public.image.ooooo.space/PicGo/2023-11/c76a8a82.png)
+![image.png](https://cdn.jsdelivr.net/gh/shelken/picbed/PicGo/2023-11/c76a8a82.png)
 
 
 ## 在不同的应用中自动切换为中文或者英文输入法
 
 在 `custom/squirrel.custom.yaml` 中添加你所安装的应用的配置，如下：
 
-![image.png](https://public.image.ooooo.space/PicGo/2023-11/aec9b6da.png)
+![image.png](https://cdn.jsdelivr.net/gh/shelken/picbed/PicGo/2023-11/aec9b6da.png)
 
 
 ## 不同设备同步词库
 
 在你的 `/Users/[yourname]/Library/Rime` 目录下应该有 `installation.yaml` 文件，编辑它，将 `installation_id` 改为你喜欢的任意唯一的名，例如当前设备的名。在文件末尾加上 `sync_dir: "xxxx"` ，xxxx 为你需要存放的目录，例如 iCloud 云目录。保存后，点击同步用户数据，即可在存放的目录下看到 `installation_id` 为名的目录。
 
-![DiQ1mQ](https://public.image.ooooo.space/uPic/2024-01/DiQ1mQ.png)
+![DiQ1mQ](https://cdn.jsdelivr.net/gh/shelken/picbed/uPic/2024-01/DiQ1mQ.png)
 
 
 # 参考

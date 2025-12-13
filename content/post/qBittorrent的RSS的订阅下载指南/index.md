@@ -2,7 +2,7 @@
 title: qBittorrent的RSS订阅下载指南
 description: 本文介绍了如何使用 qBittorrent 自动下载订阅的资源，包括开启 rss 订阅、订阅 RSS 链接、定义下载规则等步骤。通过这些操作，用户可以方便地获取自己需要的资源，并节省大量时间和精力。
 date: 2022-05-14 00:00:00+0000
-image: https://public.image.ooooo.space/uPic/2023-11/TrVKhx.png
+image: https://cdn.jsdelivr.net/gh/shelken/picbed/uPic/2023-11/TrVKhx.png
 categories:
   - 追番
 tags:
@@ -19,21 +19,21 @@ tags:
 
 - 打开 qb 配置页面，我的是部署在群晖的 qb，因此使用 web 页面来管理；如果是程序也一样。将启用 rss 订阅打开，间隔与数目最大值根据自定，然后将下面的「自动下载」打开，打开后我们才能在 rss 订阅更新时自动下载你订阅的资源。
 
-  ![image-20220514141431969](https://public.image.ooooo.space/PicGo/2023-11/f1d3767f.png)
+  ![image-20220514141431969](https://cdn.jsdelivr.net/gh/shelken/picbed/PicGo/2023-11/f1d3767f.png)
 
 - 然后点右侧的 「RSS」
 
-  ![image-20220514142037691](https://public.image.ooooo.space/PicGo/2023-11/5b8d4dd7.png)
+  ![image-20220514142037691](https://cdn.jsdelivr.net/gh/shelken/picbed/PicGo/2023-11/5b8d4dd7.png)
 
 - 然后我们先离开一下 qb，去你需要订阅资源的 bt 下载站。这里以我自己的需求做演示，我们来到「nyaa」;
 
 - 首先，我确定了我需要的订阅的内容：是`喵萌奶茶屋字幕组`翻译的`夏日重现`，并只要 `1080p` 的资源内容。这里我搜索「喵萌奶茶屋 夏日重现 1080p」，可以看到结果非常符合我的预期。因为字幕组的命名基本是固定的，所以这个搜索结果基本是稳定的。
 
-  ![image-20220514142759551](https://public.image.ooooo.space/PicGo/2023-11/4ef9fb73.png)
+  ![image-20220514142759551](https://cdn.jsdelivr.net/gh/shelken/picbed/PicGo/2023-11/4ef9fb73.png)
 
 - 点击 RSS
 
-![image-20220514143533237](https://public.image.ooooo.space/PicGo/2023-11/6f61e324.png)
+![image-20220514143533237](https://cdn.jsdelivr.net/gh/shelken/picbed/PicGo/2023-11/6f61e324.png)
 
 - 可以看到地址 url 变了，因此我们知道，只要在原来的内容加上`page=rss`，那么就拿到我们的 `rss` 订阅地址
 
@@ -47,11 +47,11 @@ tags:
 
 * 回到 qb 界面，订阅 rss
 
-  ![image-20220514150256737](https://public.image.ooooo.space/PicGo/2023-11/6789a4a8.png)
+  ![image-20220514150256737](https://cdn.jsdelivr.net/gh/shelken/picbed/PicGo/2023-11/6789a4a8.png)
 
 * 然后打开`rss下载器`，新建一个下载规则；这里我讲解一下规则定义。
 
-  ![image-20220514150525225](https://public.image.ooooo.space/PicGo/2023-11/b487994c.png)
+  ![image-20220514150525225](https://cdn.jsdelivr.net/gh/shelken/picbed/PicGo/2023-11/b487994c.png)
 
  `空格`代表`与`关系，即这些关键词都必须有才匹配上。`|`代表`或`关系，即只要有一个关键词命中就匹配，`?`代表一个字符，`*`代表 0 或多个字符。这里我们甚至可以使用正则表达式，能实现更加复杂的限制。
 
@@ -59,6 +59,6 @@ tags:
 
 - 然后将你`配置好的规则`和你`订阅的RSS链接`进行关联，保存
 
-  ![image-20220514152624596](https://public.image.ooooo.space/PicGo/2023-11/a9c9770d.png)
+  ![image-20220514152624596](https://cdn.jsdelivr.net/gh/shelken/picbed/PicGo/2023-11/a9c9770d.png)
 
 - 至此，你的 qb 每隔 xx 分钟去刷新订阅，当有新资源发布在种子网站时，qb 会自动下载符合你定义的资源，并保存在你定义的目录下。

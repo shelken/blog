@@ -2,7 +2,7 @@
 title: gh/glab 命令快速上手
 description: 简单说明 gh 和 glab 的常用命令
 date: 2024-01-19T20:05:42+08:00
-image: https://public.image.ooooo.space/uPic/2025-03/4uQN13-1qOq7y.png
+image: https://cdn.jsdelivr.net/gh/shelken/picbed/uPic/2025-03/4uQN13-1qOq7y.png
 math: 
 license: 
 hidden: false
@@ -45,7 +45,7 @@ brew install glab
 gh auth login
 ```
 
-![iqb5Cp](https://public.image.ooooo.space/uPic/2024-01/iqb5Cp.png)
+![iqb5Cp](https://cdn.jsdelivr.net/gh/shelken/picbed/uPic/2024-01/iqb5Cp.png)
 
 > 这里去 [token页面](https://github.com/settings/tokens) 创建所需 scopes 的 token
 
@@ -53,7 +53,7 @@ gh auth login
 glab auth login
 ```
 
-![oJfKuG](https://public.image.ooooo.space/uPic/2024-01/oJfKuG.png)
+![oJfKuG](https://cdn.jsdelivr.net/gh/shelken/picbed/uPic/2024-01/oJfKuG.png)
 
 > gitlab 如果是自建的可以选择自定义 hostname 
 ## 显示信息
@@ -128,4 +128,4 @@ glab repo delete -y
 
 ```
 
-![VdIPIR](https://public.image.ooooo.space/uPic/2024-01/VdIPIR.png)
+![VdIPIR](https://cdn.jsdelivr.net/gh/shelken/picbed/uPic/2024-01/VdIPIR.png)

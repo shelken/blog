@@ -3,7 +3,7 @@ title: 优雅观看新番：B站客户端使用指南
 description: 本文介绍了如何使用QuanX自动切换B站番剧代理节点，实现自动观看港澳台番剧的功能。需要修改原有脚本和添加重写与分流引用，并关闭MPM。文章提供了详细步骤和已知问题，适合有一定代码能力的用户使用。
 slug: ""
 date: 2022-04-01 00:00:00+0000
-image: https://public.image.ooooo.space/PicGo/2023-11/bcff2d81.jpg
+image: https://cdn.jsdelivr.net/gh/shelken/picbed/PicGo/2023-11/bcff2d81.jpg
 categories:
   - 追番
 tags:
@@ -33,10 +33,10 @@ publish_time: 2022-04-01 00:00:00
 
 1. 进入 B 站客户端
 2. 进入『首页』，点击『追番』
-3. 找到番剧『进击的巨人最终季』![19CC3738-4345-4CAB-896F-A21B8B051B7C_1_201_a](https://public.image.ooooo.space/PicGo/2023-11/bcff2d81.jpg)
-4. 点击进入，脚本会自动将代理节点切换设置的代理分组![9C12ABCB-933D-4C5D-8660-390BAFF3631B_1_201_a](https://public.image.ooooo.space/PicGo/2023-11/f842d577.jpg)
-5. 如果出现『找不到页面』，点击页面的『重新加载』或刷新页面，进入番剧观看页面，正常观看![E0691890-CF30-4798-8B4C-4E3FBD6AB387_1_201_a](https://public.image.ooooo.space/PicGo/2023-11/eba838c0.jpg)
-6. 退出观看页，脚本自动切换为直连![3D637A3B-F675-4DA0-B67E-E697B6FB1953_1_201_a](https://public.image.ooooo.space/PicGo/2023-11/24ec06dc.jpg)
+3. 找到番剧『进击的巨人最终季』![19CC3738-4345-4CAB-896F-A21B8B051B7C_1_201_a](https://cdn.jsdelivr.net/gh/shelken/picbed/PicGo/2023-11/bcff2d81.jpg)
+4. 点击进入，脚本会自动将代理节点切换设置的代理分组![9C12ABCB-933D-4C5D-8660-390BAFF3631B_1_201_a](https://cdn.jsdelivr.net/gh/shelken/picbed/PicGo/2023-11/f842d577.jpg)
+5. 如果出现『找不到页面』，点击页面的『重新加载』或刷新页面，进入番剧观看页面，正常观看![E0691890-CF30-4798-8B4C-4E3FBD6AB387_1_201_a](https://cdn.jsdelivr.net/gh/shelken/picbed/PicGo/2023-11/eba838c0.jpg)
+6. 退出观看页，脚本自动切换为直连![3D637A3B-F675-4DA0-B67E-E697B6FB1953_1_201_a](https://cdn.jsdelivr.net/gh/shelken/picbed/PicGo/2023-11/24ec06dc.jpg)
 
 ### 效果 2
 
@@ -44,7 +44,7 @@ publish_time: 2022-04-01 00:00:00
 2. 点击『输入框』
 3. 输入『进击的巨人 港』
 4. 脚本自动切换代理分组
-5. 页面显示『进击的巨人』番剧结果![941D38C8-4229-4899-9A34-9A25D070B229_1_201_a](https://public.image.ooooo.space/PicGo/2023-11/60b7f5f4.jpg)
+5. 页面显示『进击的巨人』番剧结果![941D38C8-4229-4899-9A34-9A25D070B229_1_201_a](https://cdn.jsdelivr.net/gh/shelken/picbed/PicGo/2023-11/60b7f5f4.jpg)
 6. 点击『立即观看』，进入观看页
 
 ## 优点

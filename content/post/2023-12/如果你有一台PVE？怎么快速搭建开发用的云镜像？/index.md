@@ -2,7 +2,7 @@
 title: 如果你有一台PVE？怎么使用Terraform快速搭建开发用的云环境？
 description: 
 date: 2023-12-03T23:13:22+08:00
-image: https://public.image.ooooo.space/cover/article-cover-1.jpeg
+image: https://cdn.jsdelivr.net/gh/shelken/picbed/cover/article-cover-1.jpeg
 math: 
 license: 
 hidden: false

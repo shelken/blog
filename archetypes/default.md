@@ -2,7 +2,7 @@
 title: "{{ replace .Name "-" " " | title }}"
 description: 
 date: {{ .Date }}
-image: https://public.image.ooooo.space/cover/article-cover-1.jpeg
+image: https://cdn.jsdelivr.net/gh/shelken/picbed/cover/article-cover-1.jpeg
 math: 
 license: 
 hidden: false
