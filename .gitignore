@@ -13,3 +13,7 @@ Context
 .makemd
 .trash
 content/.space
+
+.direnv
+.pre-commit-config.yaml
+assets/jsconfig.json
