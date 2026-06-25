@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Git on</title><link>https://blog.ooooo.space/tags/git/</link><description>Recent content in Git on</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 19 Jan 2024 20:05:42 +0800</lastBuildDate><atom:link href="https://blog.ooooo.space/tags/git/feed.xml" rel="self" type="application/rss+xml"/><item><title>gh/glab 命令快速上手</title><link>https://blog.ooooo.space/p/gh_glab/</link><pubDate>Fri, 19 Jan 2024 20:05:42 +0800</pubDate><guid>https://blog.ooooo.space/p/gh_glab/</guid><description>&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/uPic/2025-03/4uQN13-1qOq7y.png" alt="Featured image of post gh/glab 命令快速上手" /&gt;&lt;h1 id="目的"&gt;目的
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;快速创建 github 或者 gitlab 仓库，只使用命令行 gh 和 glab 的官方 cli 工具&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="安装"&gt;安装
+&lt;/h1&gt;&lt;h2 id="macos"&gt;macOS
+&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;brew install gh
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;brew install glab
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h1 id="命令"&gt;命令
+&lt;/h1&gt;&lt;h2 id="认证"&gt;认证
+&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;gh auth login
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/uPic/2024-01/iqb5Cp.png"
+loading="lazy"
+alt="iqb5Cp"
+&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这里去 &lt;a class="link" href="https://github.com/settings/tokens" target="_blank" rel="noopener"
+&gt;token页面&lt;/a&gt; 创建所需 scopes 的 token&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;glab auth login
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/uPic/2024-01/oJfKuG.png"
+loading="lazy"
+alt="oJfKuG"
+&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;gitlab 如果是自建的可以选择自定义 hostname&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="显示信息"&gt;显示信息
+&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;span class="lnt"&gt;15
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 列出repo信息&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;gh repo list
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;glab repo list
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;## gitlab 如果是自建的，执行前先把host设为你自建的, -g为全局&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;glab config &lt;span class="nb"&gt;set&lt;/span&gt; -g host xxxx.xxxx.com
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 搜索&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;## 搜索名为xxx的库&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;glab repo search -s xxx
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 查看项目的README信息&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;gh repo view
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;glab repo view
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="创建与变更仓库"&gt;创建与变更仓库
+&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;span class="lnt"&gt;15
+&lt;/span&gt;&lt;span class="lnt"&gt;16
+&lt;/span&gt;&lt;span class="lnt"&gt;17
+&lt;/span&gt;&lt;span class="lnt"&gt;18
+&lt;/span&gt;&lt;span class="lnt"&gt;19
+&lt;/span&gt;&lt;span class="lnt"&gt;20
+&lt;/span&gt;&lt;span class="lnt"&gt;21
+&lt;/span&gt;&lt;span class="lnt"&gt;22
+&lt;/span&gt;&lt;span class="lnt"&gt;23
+&lt;/span&gt;&lt;span class="lnt"&gt;24
+&lt;/span&gt;&lt;span class="lnt"&gt;25
+&lt;/span&gt;&lt;span class="lnt"&gt;26
+&lt;/span&gt;&lt;span class="lnt"&gt;27
+&lt;/span&gt;&lt;span class="lnt"&gt;28
+&lt;/span&gt;&lt;span class="lnt"&gt;29
+&lt;/span&gt;&lt;span class="lnt"&gt;30
+&lt;/span&gt;&lt;span class="lnt"&gt;31
+&lt;/span&gt;&lt;span class="lnt"&gt;32
+&lt;/span&gt;&lt;span class="lnt"&gt;33
+&lt;/span&gt;&lt;span class="lnt"&gt;34
+&lt;/span&gt;&lt;span class="lnt"&gt;35
+&lt;/span&gt;&lt;span class="lnt"&gt;36
+&lt;/span&gt;&lt;span class="lnt"&gt;37
+&lt;/span&gt;&lt;span class="lnt"&gt;38
+&lt;/span&gt;&lt;span class="lnt"&gt;39
+&lt;/span&gt;&lt;span class="lnt"&gt;40
+&lt;/span&gt;&lt;span class="lnt"&gt;41
+&lt;/span&gt;&lt;span class="lnt"&gt;42
+&lt;/span&gt;&lt;span class="lnt"&gt;43
+&lt;/span&gt;&lt;span class="lnt"&gt;44
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 克隆下某个仓库&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;gh repo clone xxx/xxxx
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;glab repo clone xxx/xxxx
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;glab repo clone https://xxxxx
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;glab repo clone &lt;span class="o"&gt;[&lt;/span&gt;id&lt;span class="o"&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 创建&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;## gh&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;### 此时目录下有个test-create-repo目录，test-create-repo 已经是个git仓库&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;### 将 test-create-repo 以私有的形式推送到github，此时gh会在远程创建一个test-create-repo的仓库&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;gh repo create --private --source&lt;span class="o"&gt;=&lt;/span&gt;test-create-repo --push
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;### 创建一个 test-repo-create2 私密仓库，添加readme和描述，如下图。并克隆到本地&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;gh repo create test-repo-create2 -c --private --add-readme -d &lt;span class="s2"&gt;&amp;#34;测试远程仓库创建并克隆到本地&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;## glab&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;### 在个人空间下创建私密仓库，create后面为路径以及在当前目录下的目录&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;glab repo create test-create-repo --private -n test-create-repo -d &lt;span class="s2"&gt;&amp;#34;测试在个人空间下创建私密仓库&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;### 指定 组/空间&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;glab repo create test-create-repo -n test-create-repo -g xxx -d &lt;span class="s2"&gt;&amp;#34;测试在xxx组下创建仓库&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;### 进入git目录&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;glab repo create -n test-create-repo -d &lt;span class="s2"&gt;&amp;#34;描述&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 同步上游（如果fork其他仓库）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;gh repo sync shelken/test-create-repo
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 改变仓库的可见&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;## 将当前目录对应仓库转为公开&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;gh repo edit --visibility public
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;## 将指定仓库的可见性转为私密&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;gh repo edit shelken/test-create-repo --visibility private
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 删除&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;gh repo delete --yes
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;gh repo delete xxx/xxxx --yes
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;## 指定 空间/repo 删除&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;glab repo delete xxx/xxxx -y
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;## 指定 本人/repo 删除&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;glab repo delete xxxx -y
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;## 本目录对应repo删除&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;glab repo delete -y
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/uPic/2024-01/VdIPIR.png"
+loading="lazy"
+alt="VdIPIR"
+&gt;&lt;/p&gt;</description></item><item><title>简单地使用开源的输入法 rime</title><link>https://blog.ooooo.space/p/%E7%AE%80%E5%8D%95%E5%9C%B0%E4%BD%BF%E7%94%A8%E5%BC%80%E6%BA%90%E7%9A%84%E8%BE%93%E5%85%A5%E6%B3%95-rime/</link><pubDate>Sun, 19 Nov 2023 21:21:57 +0800</pubDate><guid>https://blog.ooooo.space/p/%E7%AE%80%E5%8D%95%E5%9C%B0%E4%BD%BF%E7%94%A8%E5%BC%80%E6%BA%90%E7%9A%84%E8%BE%93%E5%85%A5%E6%B3%95-rime/</guid><description>&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/uPic/2023-11/kFmrVz.png" alt="Featured image of post 简单地使用开源的输入法 rime" /&gt;&lt;blockquote&gt;
+&lt;p&gt;这个项目帮助你：不需要配置复杂的配置；使用 git 来同步你的配置；及时地更新社区维护的词库&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a class="link" href="https://github.com/Mark24Code/rime-auto-deploy" target="_blank" rel="noopener"
+&gt;仓库地址Rime auto deploy&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;可以在项目的 readme 了解基本的用法，例如安装，升级等操作。这里我主要就常用的几个操作进行介绍来快速入门。&lt;/p&gt;
+&lt;h1 id="安装到你的新设备"&gt;安装到你的新设备
+&lt;/h1&gt;&lt;p&gt;在进行安装前，你应该将这个项目 fork 下来，方便我们后续的修改配置和同步配置&lt;/p&gt;
+&lt;p&gt;这里你只需要看项目的操作&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Mark24Code/rime-auto-deploy#macoslinux-%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95" target="_blank" rel="noopener"
+&gt;MacOS/Linux 使用方法&lt;/a&gt; 这里告诉你基本的在新的设备上安装操作。记得 clone 自己的项目地址&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="配置"&gt;配置
+&lt;/h1&gt;&lt;h2 id="流程"&gt;流程
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;当你需要自定义一些配置时，你只需要关注一个目录，那就是 custom 目录&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;修改在 custom 目录下的配置文件&lt;/li&gt;
+&lt;li&gt;重新运行 &lt;code&gt;installer. rb&lt;/code&gt; ，选 2 手动模式，再选 4，复制你的配置到 rime 的配置。&lt;/li&gt;
+&lt;li&gt;然后重新部署 rime。快捷键 &lt;code&gt;alt + ctrl + ` &lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;git add commit push&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="切换你的输入方案"&gt;切换你的输入方案
+&lt;/h2&gt;&lt;p&gt;如果你是个双拼用户，那么可以按 &lt;code&gt;ctrl + `&lt;/code&gt; 来让切换你的双拼方案&lt;/p&gt;
+&lt;h2 id="切换输入法时保存已经输入的字符"&gt;切换输入法时保存已经输入的字符
+&lt;/h2&gt;&lt;p&gt;有时候，在输入中文时突然想要切换到英文。我的习惯是直接按右 &lt;code&gt;Shift&lt;/code&gt; 来切换，但是初次使用时发现已经输入的字被清除了，这个时候需要在 &lt;code&gt;custom/default.custom.yaml&lt;/code&gt; 去修改
+在你的 &lt;code&gt;switch_key.Shift_R&lt;/code&gt; 下，从 &lt;code&gt;clear&lt;/code&gt; 改为 &lt;code&gt;commit_code&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/PicGo/2023-11/c76a8a82.png"
+loading="lazy"
+alt="image.png"
+&gt;&lt;/p&gt;
+&lt;h2 id="在不同的应用中自动切换为中文或者英文输入法"&gt;在不同的应用中自动切换为中文或者英文输入法
+&lt;/h2&gt;&lt;p&gt;在 &lt;code&gt;custom/squirrel.custom.yaml&lt;/code&gt; 中添加你所安装的应用的配置，如下：&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/PicGo/2023-11/aec9b6da.png"
+loading="lazy"
+alt="image.png"
+&gt;&lt;/p&gt;
+&lt;h2 id="不同设备同步词库"&gt;不同设备同步词库
+&lt;/h2&gt;&lt;p&gt;在你的 &lt;code&gt;/Users/[yourname]/Library/Rime&lt;/code&gt; 目录下应该有 &lt;code&gt;installation.yaml&lt;/code&gt; 文件，编辑它，将 &lt;code&gt;installation_id&lt;/code&gt; 改为你喜欢的任意唯一的名，例如当前设备的名。在文件末尾加上 &lt;code&gt;sync_dir: &amp;quot;xxxx&amp;quot;&lt;/code&gt; ，xxxx 为你需要存放的目录，例如 iCloud 云目录。保存后，点击同步用户数据，即可在存放的目录下看到 &lt;code&gt;installation_id&lt;/code&gt; 为名的目录。&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/uPic/2024-01/DiQ1mQ.png"
+loading="lazy"
+alt="DiQ1mQ"
+&gt;&lt;/p&gt;
+&lt;h1 id="参考"&gt;参考
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/shelken/rime-auto-deploy" target="_blank" rel="noopener"
+&gt;我的配置&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://dvel.me/posts/rime-ice/" target="_blank" rel="noopener"
+&gt;雾凇拼音配置&lt;/a&gt;
+️&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>

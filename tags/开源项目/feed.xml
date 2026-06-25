@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>开源项目 on</title><link>https://blog.ooooo.space/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/</link><description>Recent content in 开源项目 on</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 19 Nov 2023 21:21:57 +0800</lastBuildDate><atom:link href="https://blog.ooooo.space/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/feed.xml" rel="self" type="application/rss+xml"/><item><title>简单地使用开源的输入法 rime</title><link>https://blog.ooooo.space/p/%E7%AE%80%E5%8D%95%E5%9C%B0%E4%BD%BF%E7%94%A8%E5%BC%80%E6%BA%90%E7%9A%84%E8%BE%93%E5%85%A5%E6%B3%95-rime/</link><pubDate>Sun, 19 Nov 2023 21:21:57 +0800</pubDate><guid>https://blog.ooooo.space/p/%E7%AE%80%E5%8D%95%E5%9C%B0%E4%BD%BF%E7%94%A8%E5%BC%80%E6%BA%90%E7%9A%84%E8%BE%93%E5%85%A5%E6%B3%95-rime/</guid><description>&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/uPic/2023-11/kFmrVz.png" alt="Featured image of post 简单地使用开源的输入法 rime" /&gt;&lt;blockquote&gt;
+&lt;p&gt;这个项目帮助你：不需要配置复杂的配置；使用 git 来同步你的配置；及时地更新社区维护的词库&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a class="link" href="https://github.com/Mark24Code/rime-auto-deploy" target="_blank" rel="noopener"
+&gt;仓库地址Rime auto deploy&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;可以在项目的 readme 了解基本的用法，例如安装，升级等操作。这里我主要就常用的几个操作进行介绍来快速入门。&lt;/p&gt;
+&lt;h1 id="安装到你的新设备"&gt;安装到你的新设备
+&lt;/h1&gt;&lt;p&gt;在进行安装前，你应该将这个项目 fork 下来，方便我们后续的修改配置和同步配置&lt;/p&gt;
+&lt;p&gt;这里你只需要看项目的操作&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Mark24Code/rime-auto-deploy#macoslinux-%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95" target="_blank" rel="noopener"
+&gt;MacOS/Linux 使用方法&lt;/a&gt; 这里告诉你基本的在新的设备上安装操作。记得 clone 自己的项目地址&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="配置"&gt;配置
+&lt;/h1&gt;&lt;h2 id="流程"&gt;流程
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;当你需要自定义一些配置时，你只需要关注一个目录，那就是 custom 目录&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;修改在 custom 目录下的配置文件&lt;/li&gt;
+&lt;li&gt;重新运行 &lt;code&gt;installer. rb&lt;/code&gt; ，选 2 手动模式，再选 4，复制你的配置到 rime 的配置。&lt;/li&gt;
+&lt;li&gt;然后重新部署 rime。快捷键 &lt;code&gt;alt + ctrl + ` &lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;git add commit push&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="切换你的输入方案"&gt;切换你的输入方案
+&lt;/h2&gt;&lt;p&gt;如果你是个双拼用户，那么可以按 &lt;code&gt;ctrl + `&lt;/code&gt; 来让切换你的双拼方案&lt;/p&gt;
+&lt;h2 id="切换输入法时保存已经输入的字符"&gt;切换输入法时保存已经输入的字符
+&lt;/h2&gt;&lt;p&gt;有时候，在输入中文时突然想要切换到英文。我的习惯是直接按右 &lt;code&gt;Shift&lt;/code&gt; 来切换，但是初次使用时发现已经输入的字被清除了，这个时候需要在 &lt;code&gt;custom/default.custom.yaml&lt;/code&gt; 去修改
+在你的 &lt;code&gt;switch_key.Shift_R&lt;/code&gt; 下，从 &lt;code&gt;clear&lt;/code&gt; 改为 &lt;code&gt;commit_code&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/PicGo/2023-11/c76a8a82.png"
+loading="lazy"
+alt="image.png"
+&gt;&lt;/p&gt;
+&lt;h2 id="在不同的应用中自动切换为中文或者英文输入法"&gt;在不同的应用中自动切换为中文或者英文输入法
+&lt;/h2&gt;&lt;p&gt;在 &lt;code&gt;custom/squirrel.custom.yaml&lt;/code&gt; 中添加你所安装的应用的配置，如下：&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/PicGo/2023-11/aec9b6da.png"
+loading="lazy"
+alt="image.png"
+&gt;&lt;/p&gt;
+&lt;h2 id="不同设备同步词库"&gt;不同设备同步词库
+&lt;/h2&gt;&lt;p&gt;在你的 &lt;code&gt;/Users/[yourname]/Library/Rime&lt;/code&gt; 目录下应该有 &lt;code&gt;installation.yaml&lt;/code&gt; 文件，编辑它，将 &lt;code&gt;installation_id&lt;/code&gt; 改为你喜欢的任意唯一的名，例如当前设备的名。在文件末尾加上 &lt;code&gt;sync_dir: &amp;quot;xxxx&amp;quot;&lt;/code&gt; ，xxxx 为你需要存放的目录，例如 iCloud 云目录。保存后，点击同步用户数据，即可在存放的目录下看到 &lt;code&gt;installation_id&lt;/code&gt; 为名的目录。&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/uPic/2024-01/DiQ1mQ.png"
+loading="lazy"
+alt="DiQ1mQ"
+&gt;&lt;/p&gt;
+&lt;h1 id="参考"&gt;参考
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/shelken/rime-auto-deploy" target="_blank" rel="noopener"
+&gt;我的配置&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://dvel.me/posts/rime-ice/" target="_blank" rel="noopener"
+&gt;雾凇拼音配置&lt;/a&gt;
+️&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>解决字幕组命名不规范问题：使用Episode-ReName工具</title><link>https://blog.ooooo.space/p/%E8%A7%A3%E5%86%B3%E5%AD%97%E5%B9%95%E7%BB%84%E5%91%BD%E5%90%8D%E4%B8%8D%E8%A7%84%E8%8C%83%E9%97%AE%E9%A2%98%E4%BD%BF%E7%94%A8episode-rename%E5%B7%A5%E5%85%B7/</link><pubDate>Sun, 15 May 2022 00:00:00 +0000</pubDate><guid>https://blog.ooooo.space/p/%E8%A7%A3%E5%86%B3%E5%AD%97%E5%B9%95%E7%BB%84%E5%91%BD%E5%90%8D%E4%B8%8D%E8%A7%84%E8%8C%83%E9%97%AE%E9%A2%98%E4%BD%BF%E7%94%A8episode-rename%E5%B7%A5%E5%85%B7/</guid><description>&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/uPic/2023-11/0sko2h.jpg" alt="Featured image of post 解决字幕组命名不规范问题：使用Episode-ReName工具" /&gt;&lt;h1 id="材料"&gt;材料
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Nriver/Episode-ReName" title="Episode-ReName"
+target="_blank" rel="noopener"
+&gt;Episode-ReName&lt;/a&gt;（以下简称 er）&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://zh.wikipedia.org/zh-cn/QBittorrent" title="qBittorrent"
+target="_blank" rel="noopener"
+&gt;qBittorrent&lt;/a&gt;（以下简称 qb）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="背景"&gt;背景
+&lt;/h1&gt;&lt;p&gt;很多字幕组种子的命名格式往往不是按照&lt;code&gt;SxxExx&lt;/code&gt;的格式来命名的，而 Emby，Plex 等媒体服务器都是以识别&lt;code&gt;SxxExx&lt;/code&gt;来刮削剧集的元数据。因此为了让这些媒体服务器识别剧集，我们往往需要重命名下载的文件。&lt;/p&gt;
+&lt;h1 id="期望"&gt;期望
+&lt;/h1&gt;&lt;p&gt;qb 下载剧集后，自动将不符合的资源名命名为形如&lt;code&gt;'剧集名 - SxxExx.mp4'&lt;/code&gt;&lt;/p&gt;
+&lt;h1 id="实践"&gt;实践
+&lt;/h1&gt;&lt;h2 id="流程"&gt;流程
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;克隆 er 源代码,使用 pyinstaller 将 EpisodeReName.py 编译成可执行程序。（作者在原仓库有提供 windows 的，win 用户可以直接下载使用，我是 linux 环境，因此自己编译）,将可执行程序放到你想要它在的文件夹下面（我直接上传群晖下的文件夹）&lt;/li&gt;
+&lt;li&gt;设置 qb 下的「Torrent 完成时运行外部程序」，填入程序路径和必要参数&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="编译可执行程序"&gt;编译可执行程序
+&lt;/h2&gt;&lt;p&gt;win 用户跳过此步骤，直接在原仓库下载作者提供的程序；linux 用户可以直接在本地使用 pyinstaller 来操作编译（docker 也行）。如果是 mac 用户则可以使用 docker 镜像来编译 linux 程序。m1 用户建议换台电脑，目前 docker 镜像编译有问题&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; /你的工作目录
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 拉取源代码&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git clone https://github.com/Nriver/Episode-ReName.git
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; Episode-ReName
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 安装所需 requirements （requirements中包含了pyinstaller，如果是docker编译，可以把pyinstaller去掉）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pip3 install -r requirements.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 编译（非docker方式）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pyinstaller -F EpisodeReName.py
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 编译（docker方式）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;docker run -v &lt;span class="s2"&gt;&amp;#34;&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;&lt;span class="nb"&gt;pwd&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;:/src/&amp;#34;&lt;/span&gt; cdrx/pyinstaller-linux
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 移动编译后程序到你想要的文件夹。&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;mv ./dist/linux/EpisodeReName anywhere
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 我是在mac上编译的，因此把它复制到我的群晖上&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;scp ./dist/linux/EpisodeReName shelken@192.168.0.80:/volume1/docker/qb-web/script/Episode-ReName/dist/EpisodeReName
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="设置-qb-执行程序"&gt;设置 qb 执行程序
+&lt;/h2&gt;&lt;p&gt;打开工具-&amp;gt;选项-&amp;gt;下载。开启「Torrent 完成时运行外部程序」，填入你的程序地址&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/shelken/picbed/PicGo/2023-11/a8fd15af.png"
+loading="lazy"
+alt="image-20220515171458914"
+&gt;&lt;/p&gt;
+&lt;p&gt;参数解释：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;span class="lnt"&gt;7
+&lt;/span&gt;&lt;span class="lnt"&gt;8
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;qb参数：
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;%F：如果种子是单文件的，那么输出则为：/保存路径/xxxxx.mp4；如果是多文件。那么则会是: /保存路径/根目录名。
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;er参数：（这部分详细可以去看原文档，这里只介绍我使用的）
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;--path：目标路径，可以是单文件，可以是目录，目录会处理所有该目录下文件
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;--delay: 延迟多久操作，默认为0秒不等待，这个参数主要是配合qbitorrent使用, 避免qb锁定文件导致重命名失败. 一般停止做种15秒后在操作能确保文件被释放
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;--name_format：自定义重命名格式, 参数需要加引号 默认为 &amp;#34;S{season}E{ep}&amp;#34; 可以选择性加入 series系列名称 如 &amp;#34;{series} - S{season}E{ep}&amp;#34;。这里我使用了第二种格式。
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;举例:
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/volume1/docker/qb-web/script/Episode-ReName/dist/EpisodeReName --path=&amp;#34;%F&amp;#34; --delay=15 --name_format=&amp;#34;{series} - S{season}E{ep}&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h1 id="技巧"&gt;技巧
+&lt;/h1&gt;&lt;h2 id="查看-qb-日志"&gt;查看 qb 日志
+&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# volume1：取决于你套件安装在哪个存储空间&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;cat /volume1/&lt;span class="se"&gt;\@&lt;/span&gt;appstore/qBittorrent/qBittorrent_conf/data/logs/qbittorrent.log
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="给可执行程序赋权"&gt;给可执行程序赋权
+&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 如果不能执行程序，尝试给EpisodeReName执行程序赋予可执行权限&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;chmod +x /所在目录/EpisodeReName
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="多季番剧tmdb集数适配"&gt;多季番剧tmdb集数适配
+&lt;/h2&gt;&lt;p&gt;对于有多季的番剧, 比如鬼灭之刃28集, 在tmdb里没有第28集, 而是第2季第2集, 要正确削刮需要从S02E28改成S02E02.&lt;/p&gt;
+&lt;p&gt;这时候可以在鬼灭之刃的&lt;code&gt;Season 2&lt;/code&gt;文件夹中添加一个&lt;code&gt;all.txt&lt;/code&gt;文件, 里面写上一个数字, 会在自动重命名的时候减掉这个数字. 比如上面的例子就需要在&lt;code&gt;all.txt&lt;/code&gt;填入26, 自动重命名就会把S02E28改成S02E02, 这样就能正常削刮了.&lt;/p&gt;
+&lt;h1 id="注意"&gt;注意
+&lt;/h1&gt;&lt;h2 id="文件夹命名格式"&gt;文件夹命名格式
+&lt;/h2&gt;&lt;p&gt;剧名和季数是根据文件夹命名来识别的，集数是根据文件名的数字。&lt;/p&gt;
+&lt;h3 id="剧名与季数"&gt;剧名与季数
+&lt;/h3&gt;&lt;p&gt;形如：/剧集目录/剧名/Season 1/&lt;/p&gt;
+&lt;p&gt;季数命名格式要求：Season1 / Season 1 / s1 / S1&lt;/p&gt;
+&lt;p&gt;举例：/volume1/Video/watch/夏日重现/s1&lt;/p&gt;
+&lt;h3 id="集数"&gt;集数
+&lt;/h3&gt;&lt;p&gt;形如：/剧集目录/剧名/Season 1/xxxx[01]xxxxxx.mp4&lt;/p&gt;
+&lt;p&gt;集数命名匹配的正则：会匹配在括号（各种括号）内的数字，数字规则如下，以找到的第一个符合项作为集数&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;patterns&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;# 1到4位数字&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="s1"&gt;&amp;#39;(\d{1,4}(\.5)?)&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;# 特殊文字处理&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="s1"&gt;&amp;#39;第(\d{1,4}(\.5)?)集&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="s1"&gt;&amp;#39;第(\d{1,4}(\.5)?)话&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="s1"&gt;&amp;#39;第(\d{1,4}(\.5)?)話&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="s1"&gt;&amp;#39;[Ee][Pp](\d{1,4}(\.5 &amp;#34;Ee][Pp&amp;#34;)?)&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="s1"&gt;&amp;#39;[Ee](\d{1,4}(\.5 &amp;#34;Ee&amp;#34;)?)&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;# 兼容SP01等命名&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="s1"&gt;&amp;#39;[Ss][Pp](\d{1,4}(\.5 &amp;#34;Ss][Pp&amp;#34;)?)&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;# 兼容v2命名&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="s1"&gt;&amp;#39;(\d{1,4}(\.5)?)[Vv]?\d?&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;举例:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 输入：/volume1/Video/watch/夏日重现/s1/[Nekomoe kissaten][Summer Time Rendering][05][1080p][JPSC].mp4&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 输出：/volume1/Video/watch/夏日重现/s1/夏日重现 - S01E05.mp4&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="做种问题"&gt;做种问题
+&lt;/h2&gt;&lt;p&gt;qb 的「Torrent 完成时运行外部程序」功能，会在下载完资源的时候，立刻去执行程序，也就是说在下载完之后，我们的文件会被立刻重命名，这导致了我们做种会出现问题，因此我们无法做到下载后再把这个资源分享给其他人。目前也没有好的方式解决。可以考虑不是呀 qb 的这个功能，直接定时任务去执行程序，扫描固定的目录来重命名。&lt;/p&gt;</description></item></channel></rss>
