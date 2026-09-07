@@ -1,0 +1,9 @@
+min_version = "2024.9.5"
+
+[tools]
+"asdf:NeoHsu/asdf-hugo" = "extended-0.165.0"
+pre-commit = "4.6.2"
+
+[tasks.setup]
+description = "首次环境初始化"
+run = "pre-commit install"

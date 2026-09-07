@@ -20,7 +20,16 @@ To get started:
 ![GitHub action](https://user-images.githubusercontent.com/5889006/156916881-90b8bb9b-1925-4e60-9d7a-8026cda729bf.png)
 ---
 
-In case you don't want to use GitHub codespace, you can also run this template in your local machine. **You need to install Git, Go and Hugo extended locally.**
+### Run locally
+
+Install Git, Go, and mise, and enable mise shell integration. From the repository root:
+
+```bash
+mise trust
+mise install
+mise run setup
+hugo server
+```
 
 ### Update theme manually
 
@@ -35,11 +44,11 @@ hugo mod tidy
 
 ### Deploy to another static page hostings
 
-If you want to build this site using another static page hosting, you need to make sure they have Go installed in the machine. 
+If you want to build this site using another static page hosting, you need to make sure they have Go installed in the machine.
 
 <details>
   <summary>Vercel</summary>
-  
+
 You need to overwrite build command to install manually Go:
 
 ```

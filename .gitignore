@@ -14,6 +14,4 @@ Context
 .trash
 content/.space
 
-.direnv
-.pre-commit-config.yaml
 assets/jsconfig.json
