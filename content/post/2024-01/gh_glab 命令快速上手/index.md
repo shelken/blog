@@ -2,9 +2,10 @@
 title: gh/glab 命令快速上手
 description: 简单说明 gh 和 glab 的常用命令
 date: 2024-01-19T20:05:42+08:00
+lastmod: 2024-01-21T14:37:28+08:00
 image: https://cdn.jsdelivr.net/gh/shelken/picbed/uPic/2025-03/4uQN13-1qOq7y.png
-math: 
-license: 
+math:
+license:
 hidden: false
 comments: true
 draft: false
@@ -55,7 +56,7 @@ glab auth login
 
 ![oJfKuG](https://cdn.jsdelivr.net/gh/shelken/picbed/uPic/2024-01/oJfKuG.png)
 
-> gitlab 如果是自建的可以选择自定义 hostname 
+> gitlab 如果是自建的可以选择自定义 hostname
 ## 显示信息
 
 ```shell
@@ -83,7 +84,7 @@ glab repo view
 ```shell
 # 克隆下某个仓库
 
-gh repo clone xxx/xxxx 
+gh repo clone xxx/xxxx
 glab repo clone xxx/xxxx
 glab repo clone https://xxxxx
 glab repo clone [id]

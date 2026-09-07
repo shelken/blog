@@ -2,6 +2,7 @@
 title: Asciinema 的初次使用
 description: 记录 Asciinema 终端录制工具的使用方法，以及在 Hugo 中使用官方 Standalone 播放器实现本地权威录制嵌入的完整流程。
 date: 2023-03-05T03:04:46+08:00
+lastmod: 2026-09-08T15:30:00+08:00
 slug: asciinema的初次使用
 image: https://cdn.jsdelivr.net/gh/shelken/picbed/uPic/2023-11/hqH7rN.png
 math:

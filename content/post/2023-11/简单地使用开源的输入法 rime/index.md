@@ -2,6 +2,7 @@
 title: 简单地使用开源的输入法 rime
 description: ""
 date: 2023-11-19T21:21:57+08:00
+lastmod: 2024-01-22T01:46:38+08:00
 image: https://cdn.jsdelivr.net/gh/shelken/picbed/uPic/2023-11/kFmrVz.png
 math:
 license:
@@ -27,7 +28,7 @@ publish_time: 2023/11/19 21:21:57
 
 > 这个项目帮助你：不需要配置复杂的配置；使用 git 来同步你的配置；及时地更新社区维护的词库
 
-[仓库地址Rime auto deploy](https://github.com/Mark24Code/rime-auto-deploy) 
+[仓库地址Rime auto deploy](https://github.com/Mark24Code/rime-auto-deploy)
 
 可以在项目的 readme 了解基本的用法，例如安装，升级等操作。这里我主要就常用的几个操作进行介绍来快速入门。
 
@@ -56,7 +57,7 @@ publish_time: 2023/11/19 21:21:57
 ## 切换输入法时保存已经输入的字符
 
 有时候，在输入中文时突然想要切换到英文。我的习惯是直接按右 `Shift` 来切换，但是初次使用时发现已经输入的字被清除了，这个时候需要在 `custom/default.custom.yaml` 去修改
-在你的 `switch_key.Shift_R` 下，从 `clear` 改为 `commit_code` 
+在你的 `switch_key.Shift_R` 下，从 `clear` 改为 `commit_code`
 
 ![image.png](https://cdn.jsdelivr.net/gh/shelken/picbed/PicGo/2023-11/c76a8a82.png)
 

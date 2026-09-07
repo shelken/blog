@@ -2,6 +2,7 @@
 title: 在 iOS 上同时使用代理和内网
 description: iOS 只能同时运行一个 VPN，想代理常驻又内网可达怎么办？这篇文章分享一种思路：借助 Loon/Surge 这类代理软件，在代理隧道里直接回自己的内网。
 date: 2026-06-25T00:00:00+08:00
+lastmod: 2026-06-25T21:33:03+08:00
 image: https://cdn.jsdelivr.net/gh/shelken/picbed/cover/blogs/2026-06/ios-proxy-internal-network.png
 math:
 license:

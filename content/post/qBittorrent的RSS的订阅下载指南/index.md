@@ -2,6 +2,7 @@
 title: qBittorrent的RSS订阅下载指南
 description: 本文介绍了如何使用 qBittorrent 自动下载订阅的资源，包括开启 rss 订阅、订阅 RSS 链接、定义下载规则等步骤。通过这些操作，用户可以方便地获取自己需要的资源，并节省大量时间和精力。
 date: 2022-05-14 00:00:00+0000
+lastmod: 2025-12-13T20:05:41+08:00
 image: https://cdn.jsdelivr.net/gh/shelken/picbed/uPic/2023-11/TrVKhx.png
 categories:
   - 追番
@@ -40,7 +41,7 @@ tags:
   ```
   原 url：
   https://nyaa.si/?f=0&c=0_0&q=%E5%96%B5%E8%90%8C%E5%A5%B6%E8%8C%B6%E5%B1%8B+%E5%A4%8F%E6%97%A5%E9%87%8D%E7%8E%B0+1080p
-  
+
   新 url:
   https://nyaa.si/?c=0_0&f=0&q=%E5%96%B5%E8%90%8C%E5%A5%B6%E8%8C%B6%E5%B1%8B+%E5%A4%8F%E6%97%A5%E9%87%8D%E7%8E%B0+1080p&page=rss
   ```
