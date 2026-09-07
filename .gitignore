@@ -15,3 +15,4 @@ Context
 content/.space
 
 assets/jsconfig.json
+.playwright-cli

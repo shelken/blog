@@ -1,0 +1,169 @@
+{{- $src := .Get "src" -}}
+{{- $pagePath := "" -}}
+{{- with .Page.File -}}
+  {{- $pagePath = .Path -}}
+{{- else -}}
+  {{- $pagePath = .Page.Path -}}
+{{- end -}}
+
+{{- if not $src -}}
+  {{- errorf "asciinema shortcode at %s on page %q: 'src' attribute is required" .Position $pagePath -}}
+{{- end -}}
+
+{{- if or (hasPrefix $src "http://") (hasPrefix $src "https://") (hasPrefix $src "//") -}}
+  {{- errorf "asciinema shortcode at %s on page %q: external cast URL %q is forbidden, only local page resources are supported" .Position $pagePath $src -}}
+{{- end -}}
+
+{{- $cast := .Page.Resources.GetMatch $src -}}
+{{- if not $cast -}}
+  {{- errorf "asciinema shortcode at %s on page %q: cast resource %q not found in page bundle" .Position $pagePath $src -}}
+{{- else -}}
+
+{{- if not (.Page.Store.Get "asciinemaLoaded") -}}
+  {{- .Page.Store.Set "asciinemaLoaded" true -}}
+{{- $playerCss := resources.GetRemote "https://cdn.jsdelivr.net/npm/asciinema-player@3.17.0/dist/bundle/asciinema-player.css" | resources.Fingerprint "sha384" -}}
+{{- $playerJs := resources.GetRemote "https://cdn.jsdelivr.net/npm/asciinema-player@3.17.0/dist/bundle/asciinema-player.min.js" | resources.Fingerprint "sha384" -}}
+<link rel="stylesheet" href="{{ $playerCss.RelPermalink }}" integrity="{{ $playerCss.Data.Integrity }}">
+<script src="{{ $playerJs.RelPermalink }}" integrity="{{ $playerJs.Data.Integrity }}"></script>
+<style>
+/* 屏蔽主题对 .article-content pre 的宽度出血 (width: calc(100% + var(--card-padding)*2))，确保文本层与 SVG 箭头及底图对齐 */
+div.ap-term pre.ap-term-text {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+}
+/* Catppuccin Macchiato (玛奇朵，暗色) */
+.asciinema-player-theme-catppuccin-macchiato,
+.asciinema-player-theme-macchiato,
+.asciinema-player-theme-catppuccin {
+  --term-color-foreground: #cad3f5;
+  --term-color-background: #24273a;
+  --term-color-0: #494d64;
+  --term-color-1: #ed8796;
+  --term-color-2: #a6da95;
+  --term-color-3: #eed49f;
+  --term-color-4: #8aadf4;
+  --term-color-5: #f5bde6;
+  --term-color-6: #8bd5ca;
+  --term-color-7: #b8c0e0;
+  --term-color-8: #5b6078;
+  --term-color-9: #ed8796;
+  --term-color-10: #a6da95;
+  --term-color-11: #eed49f;
+  --term-color-12: #8aadf4;
+  --term-color-13: #f5bde6;
+  --term-color-14: #8bd5ca;
+  --term-color-15: #a5adcb;
+}
+/* Catppuccin Latte (拿铁，亮色) */
+.asciinema-player-theme-catppuccin-latte,
+.asciinema-player-theme-latte {
+  --term-color-foreground: #4c4f69;
+  --term-color-background: #eff1f5;
+  --term-color-0: #5c5f77;
+  --term-color-1: #d20f39;
+  --term-color-2: #40a02b;
+  --term-color-3: #df8e1d;
+  --term-color-4: #1e66f5;
+  --term-color-5: #ea76cb;
+  --term-color-6: #179299;
+  --term-color-7: #acb0be;
+  --term-color-8: #6c6f85;
+  --term-color-9: #d20f39;
+  --term-color-10: #40a02b;
+  --term-color-11: #df8e1d;
+  --term-color-12: #1e66f5;
+  --term-color-13: #ea76cb;
+  --term-color-14: #179299;
+  --term-color-15: #bcc0cc;
+}
+/* 亮色模式下若配置 catppuccin 自动切为拿铁 (Latte) */
+html[data-scheme="light"] .asciinema-player-theme-catppuccin,
+@media (prefers-color-scheme: light) {
+  html:not([data-scheme="dark"]) .asciinema-player-theme-catppuccin {
+    --term-color-foreground: #4c4f69;
+    --term-color-background: #eff1f5;
+    --term-color-0: #5c5f77;
+    --term-color-1: #d20f39;
+    --term-color-2: #40a02b;
+    --term-color-3: #df8e1d;
+    --term-color-4: #1e66f5;
+    --term-color-5: #ea76cb;
+    --term-color-6: #179299;
+    --term-color-7: #acb0be;
+    --term-color-8: #6c6f85;
+    --term-color-9: #d20f39;
+    --term-color-10: #40a02b;
+    --term-color-11: #df8e1d;
+    --term-color-12: #1e66f5;
+    --term-color-13: #ea76cb;
+    --term-color-14: #179299;
+    --term-color-15: #bcc0cc;
+  }
+}
+/* Catppuccin Pink 播放进度条强调色 */
+.asciinema-player-theme-catppuccin-macchiato .ap-progressbar .ap-gutter-full,
+.asciinema-player-theme-macchiato .ap-progressbar .ap-gutter-full,
+.asciinema-player-theme-catppuccin .ap-progressbar .ap-gutter-full {
+  background-color: #f5bde6 !important;
+}
+.asciinema-player-theme-catppuccin-latte .ap-progressbar .ap-gutter-full,
+.asciinema-player-theme-latte .ap-progressbar .ap-gutter-full {
+  background-color: #ea76cb !important;
+}
+html[data-scheme="light"] .asciinema-player-theme-catppuccin .ap-progressbar .ap-gutter-full,
+@media (prefers-color-scheme: light) {
+  html:not([data-scheme="dark"]) .asciinema-player-theme-catppuccin .ap-progressbar .ap-gutter-full {
+    background-color: #ea76cb !important;
+  }
+}
+</style>
+{{- end -}}
+
+{{- $containerId := printf "asciinema-player-%d" .Ordinal -}}
+{{- $castFilename := path.Base $cast.RelPermalink -}}
+
+{{- $canonicalKeys := dict
+    "idletimelimit" "idleTimeLimit"
+    "autoplay" "autoPlay"
+    "startat" "startAt"
+    "pauseonmarkers" "pauseOnMarkers"
+    "terminalfontsize" "terminalFontSize"
+    "terminallineheight" "terminalLineHeight"
+    "terminalfontfamily" "terminalFontFamily"
+    "fit" "fit"
+-}}
+
+{{- $options := dict -}}
+{{- with site.Params.asciinema.defaults -}}
+  {{- range $k, $v := . -}}
+    {{- $canonical := index $canonicalKeys (lower $k) | default $k -}}
+    {{- $options = merge $options (dict $canonical $v) -}}
+  {{- end -}}
+{{- end -}}
+{{- range $k, $v := .Params -}}
+  {{- if ne (lower $k) "src" -}}
+    {{- $canonical := index $canonicalKeys (lower $k) | default $k -}}
+    {{- $options = merge $options (dict $canonical $v) -}}
+  {{- end -}}
+{{- end -}}
+
+<div id="{{ $containerId }}" class="asciinema-container">
+  <noscript>
+    <p>当前环境未启用 JavaScript。你可以<a href="{{ $cast.RelPermalink }}" download>下载本地录制文件 ({{ $castFilename }})</a>，并在终端运行 <code>asciinema play {{ $castFilename }}</code> 进行回放。</p>
+  </noscript>
+</div>
+<script>
+(function() {
+  var container = document.getElementById({{ $containerId }});
+  if (!container) return;
+  try {
+    container.innerHTML = '';
+    AsciinemaPlayer.create({ data: {{ $cast.Content }} }, container, {{ jsonify $options | safeJS }});
+  } catch (err) {
+    console.error('Asciinema player error:', err);
+    container.textContent = '终端录制加载失败';
+  }
+})();
+</script>
+{{- end -}}

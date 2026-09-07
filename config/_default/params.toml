@@ -149,9 +149,8 @@ host = ""
 id = ""
 
 [asciinema.defaults]
-theme = "monokai"
+theme = "auto/catppuccin"
 idleTimeLimit = 2
 speed = 1
-# 行数
-rows = 24
-#cols = 80
+poster = "npt:0:01"
+terminalFontFamily = "'JetBrainsMono Nerd Font', 'FiraCode Nerd Font', 'MesloLGS NF', 'Maple Mono NF CN', 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace, 'Symbols Nerd Font'"
